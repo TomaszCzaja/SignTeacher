@@ -17,9 +17,9 @@ namespace SignTeacher.UI
             Loaded += MainWindow_Loaded;
         }
 
-        private void MainWindow_Loaded(object sender, RoutedEventArgs routedEventArgs)
+        private async void MainWindow_Loaded(object sender, RoutedEventArgs routedEventArgs)
         {
-            _viewModel.Load();
+            await _viewModel.LoadAsync();
         }
     }
 }

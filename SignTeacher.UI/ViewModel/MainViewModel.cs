@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using SignTeacher.Model;
 using SignTeacher.UI.Data;
 
@@ -15,9 +16,9 @@ namespace SignTeacher.UI.ViewModel
             _userDataService = userDataService;
         }
 
-        public void Load()
+        public async Task LoadAsync()
         {
-            var users = _userDataService.GetAll();
+            var users = await _userDataService.GetAllAsync();
 
             Users.Clear();
 

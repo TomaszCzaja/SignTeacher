@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using SignTeacher.Model;
 
 namespace SignTeacher.UI.Data
 {
     public interface IUserDataService
     {
-        IEnumerable<User> GetAll();
+        Task<List<User>> GetAllAsync();
     }
 }

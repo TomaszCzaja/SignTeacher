@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Data.Entity;
+using System.Threading.Tasks;
 using SignTeacher.DataAccess;
 using SignTeacher.Model;
 
@@ -15,11 +16,11 @@ namespace SignTeacher.UI.Data
             _contextCreator = contextCreator;
         }
 
-        public IEnumerable<User> GetAll()
+        public async Task<List<User>> GetAllAsync()
         {
             using (var ctx = _contextCreator())
             {
-                return ctx.Users.AsNoTracking().ToList();
+                return await ctx.Users.AsNoTracking().ToListAsync();
             }
         }
     }
