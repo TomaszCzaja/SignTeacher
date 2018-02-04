@@ -17,6 +17,7 @@ namespace SignTeacher.UI
 
             builder.RegisterType<LookupDataService>().AsImplementedInterfaces();
             builder.RegisterType<UserDataService>().As<IUserDataService>();
+
         }
     }
 }
