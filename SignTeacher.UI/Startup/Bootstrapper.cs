@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Prism.Events;
 using SignTeacher.DataAccess;
 
 namespace SignTeacher.UI.Startup
@@ -11,6 +12,8 @@ namespace SignTeacher.UI.Startup
 
             builder.RegisterModule<UiServicesRegistry>();
             builder.RegisterModule<DataAccessServicesRegistry>();
+
+            builder.RegisterType<EventAggregator>().As<IEventAggregator>().SingleInstance();
 
             return builder.Build();
         }
