@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignTeacher.Model", "SignTeacher.Model\SignTeacher.Model.csproj", "{ACED1D0F-FEB5-4898-980D-B4C0CD04F12F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignTeacher.UI", "SignTeacher.UI\SignTeacher.UI.csproj", "{43D166FA-94BF-4F66-B15B-2ABE9AB3648F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignTeacher.DataAccess", "SignTeacher.DataAccess\SignTeacher.DataAccess.csproj", "{701DE72C-EEDD-4B10-9CFD-5D2D933E2DFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignTeacher.GestureRecognize", "SignTeacher.GestureRecognize\SignTeacher.GestureRecognize.csproj", "{5AD1F886-413A-41E5-8150-6B5018BC27B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACED1D0F-FEB5-4898-980D-B4C0CD04F12F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACED1D0F-FEB5-4898-980D-B4C0CD04F12F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACED1D0F-FEB5-4898-980D-B4C0CD04F12F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACED1D0F-FEB5-4898-980D-B4C0CD04F12F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43D166FA-94BF-4F66-B15B-2ABE9AB3648F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43D166FA-94BF-4F66-B15B-2ABE9AB3648F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43D166FA-94BF-4F66-B15B-2ABE9AB3648F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43D166FA-94BF-4F66-B15B-2ABE9AB3648F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{701DE72C-EEDD-4B10-9CFD-5D2D933E2DFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{701DE72C-EEDD-4B10-9CFD-5D2D933E2DFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{701DE72C-EEDD-4B10-9CFD-5D2D933E2DFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{701DE72C-EEDD-4B10-9CFD-5D2D933E2DFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AD1F886-413A-41E5-8150-6B5018BC27B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AD1F886-413A-41E5-8150-6B5018BC27B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AD1F886-413A-41E5-8150-6B5018BC27B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AD1F886-413A-41E5-8150-6B5018BC27B8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8D3AC946-755A-4F0E-A446-5E9ACA0E67C7}
+	EndGlobalSection
+EndGlobal
