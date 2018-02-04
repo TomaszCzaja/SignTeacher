@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SignTeacher.UI"
+        xmlns:view="clr-namespace:SignTeacher.UI.View"
         mc:Ignorable="d"
         Title="SignTeacher" Height="350" Width="525">
     <Grid>
@@ -11,7 +12,7 @@
             <ColumnDefinition Width="200"/>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <ListView ItemsSource="{Binding Users}"
-                  DisplayMemberPath="FirstName"/>
+        <view:NavigationView DataContext="{Binding NavigationViewModel}"/>
+        <view:UserDetailView Grid.Column="1" DataContext="{Binding UserDetailViewModel}"/>
     </Grid>
 </Window>

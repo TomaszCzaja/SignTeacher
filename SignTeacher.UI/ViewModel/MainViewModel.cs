@@ -1,33 +1,23 @@
-﻿using System.Collections.ObjectModel;
-using System.Threading.Tasks;
-using SignTeacher.Model;
-using SignTeacher.UI.Data;
+﻿using System.Threading.Tasks;
+using SignTeacher.UI.ViewModel.Interface;
 
 namespace SignTeacher.UI.ViewModel
 {
-    public class MainViewModel : ViewModelBase
+    public class MainViewModel
     {
-        private readonly IUserDataService _userDataService;
-
-        public MainViewModel(IUserDataService userDataService)
+        public MainViewModel(INavigationViewModel navigationViewModel, IUserDetailViewModel userDetailViewModel)
         {
-            Users = new ObservableCollection<User>();
-
-            _userDataService = userDataService;
+            NavigationViewModel = navigationViewModel;
+            UserDetailViewModel = userDetailViewModel;
         }
+
+        public INavigationViewModel NavigationViewModel { get; }
+
+        public IUserDetailViewModel UserDetailViewModel { get; }
 
         public async Task LoadAsync()
         {
-            var users = await _userDataService.GetAllAsync();
-
-            Users.Clear();
-
-            foreach (var user in users)
-            {
-                Users.Add(user);
-            }
+            await NavigationViewModel.LoadAsync();
         }
-
-        public ObservableCollection<User> Users { get; set; }
     }
 }

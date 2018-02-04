@@ -2,10 +2,10 @@
 using System.Threading.Tasks;
 using SignTeacher.Model;
 
-namespace SignTeacher.UI.Data
+namespace SignTeacher.UI.Data.Interface
 {
     public interface IUserDataService
     {
-        Task<List<User>> GetAllAsync();
+        Task<User> GetByIdAsync(int userId);
     }
 }

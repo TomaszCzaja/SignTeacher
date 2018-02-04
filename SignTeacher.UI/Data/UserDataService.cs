@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Threading.Tasks;
 using SignTeacher.DataAccess;
 using SignTeacher.Model;
+using SignTeacher.UI.Data.Interface;
 
 namespace SignTeacher.UI.Data
 {
@@ -16,11 +17,11 @@ namespace SignTeacher.UI.Data
             _contextCreator = contextCreator;
         }
 
-        public async Task<List<User>> GetAllAsync()
+        public async Task<User> GetByIdAsync(int userId)
         {
             using (var ctx = _contextCreator())
             {
-                return await ctx.Users.AsNoTracking().ToListAsync();
+                return await ctx.Users.AsNoTracking().SingleAsync(user => user.Id == userId);
             }
         }
     }
