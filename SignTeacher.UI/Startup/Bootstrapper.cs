@@ -1,6 +1,5 @@
 ﻿using Autofac;
-using SignTeacher.UI.Data;
-using SignTeacher.UI.ViewModel;
+using SignTeacher.DataAccess;
 
 namespace SignTeacher.UI.Startup
 {
@@ -10,9 +9,8 @@ namespace SignTeacher.UI.Startup
         {
             var builder = new ContainerBuilder();
 
-            builder.RegisterType<MainWindow>().AsSelf();
-            builder.RegisterType<MainViewModel>().AsSelf();
-            builder.RegisterType<UserDataService>().As<IUserDataService>();
+            builder.RegisterModule<UiServicesRegistry>();
+            builder.RegisterModule<DataAccessServicesRegistry>();
 
             return builder.Build();
         }

@@ -1,16 +1,26 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using SignTeacher.DataAccess;
 using SignTeacher.Model;
 
 namespace SignTeacher.UI.Data
 {
     public class UserDataService : IUserDataService
     {
+        private readonly Func<SignTeacherDbContext> _contextCreator;
+
+        public UserDataService(Func<SignTeacherDbContext> contextCreator)
+        {
+            _contextCreator = contextCreator;
+        }
+
         public IEnumerable<User> GetAll()
         {
-            yield return new User { FirstName = "Thomas", LastName = "Huber" };
-            yield return new User { FirstName = "Andreas", LastName = "Boehler" };
-            yield return new User { FirstName = "Julia", LastName = "Huber" };
-            yield return new User { FirstName = "Chrissi", LastName = "Egin" };
+            using (var ctx = _contextCreator())
+            {
+                return ctx.Users.AsNoTracking().ToList();
+            }
         }
     }
 }
