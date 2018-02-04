@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace SignTeacher.Model
 {
-    public class Class1
+    public class User
     {
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
     }
 }
