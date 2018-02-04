@@ -12,7 +12,7 @@ namespace SignTeacher.UI.ViewModel
     {
         private readonly IUserLookupDataService _userLookupDataService;
         private readonly IEventAggregator _eventAggregator;
-        private LookupItem _selectedUser;
+        private LookupItem _selectedUser; 
 
         public NavigationViewModel(IUserLookupDataService userLookupDataService, IEventAggregator eventAggregator)
         {
