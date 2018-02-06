@@ -15,6 +15,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition />
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Label Content="Firstname" Margin="10 10 10 0"/>
         <TextBox Grid.Row="1" Text="{Binding User.FirstName,
@@ -23,5 +24,9 @@
         <Label Grid.Row="2" Content="Lastname" Margin="10 0"/>
         <TextBox Grid.Row="3" Text="{Binding User.LastName,
         Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="10 0 10 10"/>
+        
+        <StackPanel Grid.Row="7" Orientation="Horizontal">
+            <Button Content="Save" Width="125" Margin="10" Command="{Binding SaveCommand}"/>
+        </StackPanel>
     </Grid>
 </UserControl>

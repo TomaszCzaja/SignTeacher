@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Threading.Tasks;
 using SignTeacher.DataAccess;
@@ -22,6 +21,16 @@ namespace SignTeacher.UI.Data
             using (var ctx = _contextCreator())
             {
                 return await ctx.Users.AsNoTracking().SingleAsync(user => user.Id == userId);
+            }
+        }
+
+        public async Task SaveAsync(User user)
+        {
+            using (var ctx = _contextCreator())
+            {
+                ctx.Users.Attach(user);
+                ctx.Entry(user).State = EntityState.Modified;
+                await ctx.SaveChangesAsync();
             }
         }
     }

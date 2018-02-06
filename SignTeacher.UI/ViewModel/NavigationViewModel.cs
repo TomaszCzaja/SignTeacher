@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using Prism.Events;
 using SignTeacher.Model;
@@ -12,30 +13,21 @@ namespace SignTeacher.UI.ViewModel
     {
         private readonly IUserLookupDataService _userLookupDataService;
         private readonly IEventAggregator _eventAggregator;
-        private LookupItem _selectedUser; 
+        private NavigationItemViewModel _selectedUser; 
 
         public NavigationViewModel(IUserLookupDataService userLookupDataService, IEventAggregator eventAggregator)
         {
             _userLookupDataService = userLookupDataService;
             _eventAggregator = eventAggregator;
 
-            Users = new ObservableCollection<LookupItem>();
+            Users = new ObservableCollection<NavigationItemViewModel>();
+
+            _eventAggregator.GetEvent<AfterUserSaveEvent>().Subscribe(AfterUserSaved);
         }
 
-        public async Task LoadAsync()
-        {
-            var lookup = await _userLookupDataService.GetUserLookupAsync();
+        public ObservableCollection<NavigationItemViewModel> Users { get; }
 
-            Users.Clear();
-            foreach (var item in lookup)
-            {
-                Users.Add(item);
-            }
-        }
-
-        public ObservableCollection<LookupItem> Users { get; }
-
-        public LookupItem SelectedUser
+        public NavigationItemViewModel SelectedUser
         {
             get => _selectedUser;
             set
@@ -50,5 +42,23 @@ namespace SignTeacher.UI.ViewModel
                 }
             }
         }
+
+        public async Task LoadAsync()
+        {
+            var lookup = await _userLookupDataService.GetUserLookupAsync();
+
+            Users.Clear();
+            foreach (var item in lookup)
+            {
+                Users.Add(new NavigationItemViewModel(item.Id, item.DisplayMember));
+            }
+        }
+
+        private void AfterUserSaved(AfterUserSavedEventArgs obj)
+        {
+            var navigationItem = Users.Single(user => user.Id == obj.Id);
+            navigationItem.DisplayMember = obj.DisplayMember;
+        }
+
     }
 }
