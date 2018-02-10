@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
+using System.Windows.Threading;
 using Autofac;
 using SignTeacher.UI.Startup;
 
@@ -13,6 +15,13 @@ namespace SignTeacher.UI
 
             var mainWindow = container.Resolve<MainWindow>();
             mainWindow.Show();
+        }
+
+        private void App_OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+        {
+            MessageBox.Show("Somethink went wrong. Message: " + Environment.NewLine + e.Exception.Message);
+
+            e.Handled = true;
         }
     }
 }

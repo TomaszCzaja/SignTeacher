@@ -59,6 +59,10 @@
     <Compile Include="Migrations\201802041258197_InitialMigration.Designer.cs">
       <DependentUpon>201802041258197_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802081917345_Validation.cs" />
+    <Compile Include="Migrations\201802081917345_Validation.Designer.cs">
+      <DependentUpon>201802081917345_Validation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="SignTeacherDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,6 +80,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201802041258197_InitialMigration.resx">
       <DependentUpon>201802041258197_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802081917345_Validation.resx">
+      <DependentUpon>201802081917345_Validation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

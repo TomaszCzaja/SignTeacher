@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Prism.Events;
-using SignTeacher.Model;
 using SignTeacher.UI.Data.Interface;
 using SignTeacher.UI.Event;
 using SignTeacher.UI.ViewModel.Interface;
