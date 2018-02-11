@@ -78,6 +78,8 @@
     <Compile Include="Data\LookupDataService.cs" />
     <Compile Include="Event\AfterUserSaveEvent.cs" />
     <Compile Include="Event\OpenUserDetailViewEvent.cs" />
+    <Compile Include="LeapMotion\FrameHandler.cs" />
+    <Compile Include="LeapMotion\Interface\IFrameHandler.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Startup\Bootstrapper.cs" />
     <Compile Include="UiServicesRegistry.cs" />
@@ -154,6 +156,7 @@
       <Name>SignTeacher.Model</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy /yr "E:\Repositories\Magisterka\SignTeacher.UI\LeapMotionSDK\LeapC.dll" "$(TargetDir)"</PostBuildEvent>
