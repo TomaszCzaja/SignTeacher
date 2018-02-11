@@ -22,7 +22,7 @@ namespace SignTeacher.UI
             builder.RegisterType<UserDataService>().As<IUserDataService>();
 
             builder.RegisterType<Controller>().AsSelf().SingleInstance();
-            builder.RegisterType<FrameHandler>().As<IFrameHandler>();
+            builder.RegisterType<HandDataReader>().As<IFrameHandler>();
         }
     }
 }
