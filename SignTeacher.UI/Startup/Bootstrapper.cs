@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Prism.Events;
 using SignTeacher.DataAccess;
+using SignTeacher.GestureRecognize;
 
 namespace SignTeacher.UI.Startup
 {
@@ -12,6 +13,7 @@ namespace SignTeacher.UI.Startup
 
             builder.RegisterModule<UiServicesRegistry>();
             builder.RegisterModule<DataAccessServicesRegistry>();
+            builder.RegisterModule<GestureRecognizeServicesRegistry>();
 
             builder.RegisterType<EventAggregator>().As<IEventAggregator>().SingleInstance();
 

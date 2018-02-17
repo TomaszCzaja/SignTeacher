@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Windows;
+﻿using System.Windows;
 using Leap;
 using SignTeacher.UI.LeapMotion.Interface;
 using SignTeacher.UI.ViewModel;
