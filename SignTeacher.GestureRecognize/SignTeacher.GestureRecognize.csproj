@@ -76,6 +76,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MachineLearning\DecisionTreesClassifier.cs" />
+    <Compile Include="MachineLearning\Interface\IClassifier.cs" />
     <Compile Include="Wrapper\DatasetWrapper.cs" />
     <Compile Include="Wrapper\Interface\IDatasetWrapper.cs" />
     <Compile Include="Excel\ExcelWriter.cs" />
@@ -92,6 +94,7 @@
       <Name>SignTeacher.Model</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Accord.3.8.2-alpha\build\Accord.targets" Condition="Exists('..\packages\Accord.3.8.2-alpha\build\Accord.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

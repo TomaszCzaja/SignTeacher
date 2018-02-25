@@ -24,8 +24,12 @@ namespace SignTeacher.UI.LeapMotion
 
             if (rightHand == null) throw new ArgumentException("Right hand is required!");
 
-            _datasetWrapper.Add(new DataSetInstance(rightHand.GrabAngle));
-            Debug.WriteLine("Trainer");
+            _datasetWrapper.Add(new ControllerOutput()
+            {
+                GrabAngle = rightHand.GrabAngle
+            });
+
+            Debug.WriteLine(rightHand.GrabAngle);
         }
     }
 }

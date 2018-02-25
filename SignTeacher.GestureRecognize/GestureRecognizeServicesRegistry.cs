@@ -1,6 +1,8 @@
 ﻿using Autofac;
 using SignTeacher.GestureRecognize.Excel;
 using SignTeacher.GestureRecognize.Excel.Interface;
+using SignTeacher.GestureRecognize.MachineLearning;
+using SignTeacher.GestureRecognize.MachineLearning.Interface;
 using SignTeacher.GestureRecognize.Wrapper;
 using SignTeacher.GestureRecognize.Wrapper.Interface;
 
@@ -12,6 +14,7 @@ namespace SignTeacher.GestureRecognize
         {
             builder.RegisterType<ExcelExporter>().As<IExcelExporter>();
             builder.RegisterType<DatasetWrapper>().As<IDatasetWrapper>().SingleInstance();
+            builder.RegisterType<DecisionTreesClassifier>().As<IClassifier>().SingleInstance();
         }
     }
 }

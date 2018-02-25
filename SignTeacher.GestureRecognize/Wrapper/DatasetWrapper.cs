@@ -22,9 +22,14 @@ namespace SignTeacher.GestureRecognize.Wrapper
 
         private List<DataSetInstance> Dataset { get; }
 
-        public void Add(DataSetInstance dataSetInstance)
+        public void Add(ControllerOutput controllerOutput)
         {
-            dataSetInstance.Class = OutputClass;
+            var dataSetInstance = new DataSetInstance()
+            {
+                GrabAngle = controllerOutput.GrabAngle,
+                Class = OutputClass
+            };
+
             Dataset.Add(dataSetInstance);
         }
 

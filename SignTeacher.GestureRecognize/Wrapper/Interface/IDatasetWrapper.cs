@@ -5,7 +5,7 @@ namespace SignTeacher.GestureRecognize.Wrapper.Interface
 {
     public interface IDatasetWrapper
     {
-        void Add(DataSetInstance dataSetInstance);
+        void Add(ControllerOutput controllerOutput);
         void ExportDataset();
         OutputClass OutputClass { get; set; }
     }
