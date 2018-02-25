@@ -1,7 +1,8 @@
-﻿using Autofac;
+﻿using System;
+using System.Linq;
+using System.Reflection;
+using Autofac;
 using Prism.Events;
-using SignTeacher.DataAccess;
-using SignTeacher.GestureRecognize;
 
 namespace SignTeacher.UI.Startup
 {
@@ -11,13 +12,23 @@ namespace SignTeacher.UI.Startup
         {
             var builder = new ContainerBuilder();
 
-            builder.RegisterModule<UiServicesRegistry>();
-            builder.RegisterModule<DataAccessServicesRegistry>();
-            builder.RegisterModule<GestureRecognizeServicesRegistry>();
+            RegisterModules(builder);
 
             builder.RegisterType<EventAggregator>().As<IEventAggregator>().SingleInstance();
 
             return builder.Build();
+        }
+
+        private static void RegisterModules(ContainerBuilder builder)
+        {
+            var executingAssembly = Assembly.GetExecutingAssembly();
+            var signTeacherAssemblies = executingAssembly
+                .GetReferencedAssemblies()
+                .Where(x => x.FullName.StartsWith("SignTeacher"))
+                .Select(Assembly.Load)
+                .ToList();
+            signTeacherAssemblies.Add(executingAssembly);
+            signTeacherAssemblies.ForEach(x => builder.RegisterAssemblyModules(x));
         }
     }
 }

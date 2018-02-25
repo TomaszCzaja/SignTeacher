@@ -1,4 +1,6 @@
-﻿namespace SignTeacher.Model.Dataset
+﻿using SignTeacher.Model.Enum;
+
+namespace SignTeacher.Model
 {
     public class SignTeacherDataset
     {

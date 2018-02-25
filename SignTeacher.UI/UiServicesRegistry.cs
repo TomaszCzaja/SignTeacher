@@ -15,6 +15,7 @@ namespace SignTeacher.UI
         {
             builder.RegisterType<MainWindow>().AsSelf();
             builder.RegisterType<MainViewModel>().AsSelf();
+
             builder.RegisterType<DecisionMakerViewModel>()
                 .Keyed<IDetailViewModel>(nameof(DecisionMakerViewModel));
             builder.RegisterType<ModelTrainerViewModel>()
@@ -24,7 +25,8 @@ namespace SignTeacher.UI
             builder.RegisterType<UserDataService>().As<IUserDataService>();
 
             builder.RegisterType<Controller>().AsSelf().SingleInstance();
-            builder.RegisterType<HandDataReader>().As<IHandDataReader>();
+            builder.RegisterType<ModelTrainerFrameHandler>().As<IModelTrainerFrameHandler>();
+            builder.RegisterType<DecisionMakerFrameHandler>().As<IDecisionMakerFrameHandler>();
         }
     }
 }

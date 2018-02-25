@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using SignTeacher.Model.Dataset;
+using SignTeacher.Model;
 
 namespace SignTeacher.GestureRecognize.Data
 {

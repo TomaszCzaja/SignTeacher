@@ -19,7 +19,7 @@ namespace SignTeacher.UI
 
         private void App_OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
-            MessageBox.Show("Somethink went wrong. Message: " + Environment.NewLine + e.Exception.Message);
+            MessageBox.Show("Something went wrong. Message: " + Environment.NewLine + e.Exception.Message);
 
             e.Handled = true;
         }

@@ -32,6 +32,7 @@ namespace SignTeacher.UI.ViewModel
 
         private void OnCreateDetailView(Type viewModelType)
         {
+            DetailViewModel?.UpdateLeapMotionHandler();
             DetailViewModel = _detailViewModelCreator[viewModelType.Name];
         }
     }

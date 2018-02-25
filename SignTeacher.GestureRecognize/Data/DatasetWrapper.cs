@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 using SignTeacher.GestureRecognize.Excel.Interface;
-using SignTeacher.Model.Dataset;
+using SignTeacher.Model;
 
 namespace SignTeacher.GestureRecognize.Data
 {

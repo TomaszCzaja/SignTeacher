@@ -78,9 +78,12 @@
     <Compile Include="Data\LookupDataService.cs" />
     <Compile Include="Event\AfterUserSaveEvent.cs" />
     <Compile Include="Event\OpenUserDetailViewEvent.cs" />
+    <Compile Include="LeapMotion\DecisionMakerFrameHandler.cs" />
     <Compile Include="LeapMotion\FrameHandlerBase.cs" />
-    <Compile Include="LeapMotion\HandDataReader.cs" />
-    <Compile Include="LeapMotion\Interface\IHandDataReader.cs" />
+    <Compile Include="LeapMotion\Interface\IDecisionMakerFrameHandler.cs" />
+    <Compile Include="LeapMotion\Interface\IModelTrainerFrameHandler.cs" />
+    <Compile Include="LeapMotion\ModelTrainerFrameHandler.cs" />
+    <Compile Include="LeapMotion\Interface\IFrameHandler.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Startup\Bootstrapper.cs" />
     <Compile Include="UiServicesRegistry.cs" />

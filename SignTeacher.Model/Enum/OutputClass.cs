@@ -1,4 +1,4 @@
-﻿namespace SignTeacher.Model.Dataset
+﻿namespace SignTeacher.Model.Enum
 {
     public enum OutputClass
     {
