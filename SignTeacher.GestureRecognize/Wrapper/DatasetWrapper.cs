@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 using SignTeacher.GestureRecognize.Excel.Interface;
+using SignTeacher.GestureRecognize.Wrapper.Interface;
 using SignTeacher.Model;
+using SignTeacher.Model.Enum;
 
-namespace SignTeacher.GestureRecognize.Data
+namespace SignTeacher.GestureRecognize.Wrapper
 {
     public class DatasetWrapper : IDatasetWrapper
     {
@@ -13,20 +15,22 @@ namespace SignTeacher.GestureRecognize.Data
         {
             _excelExporter = excelExporter;
 
-            this.LeapMotionDatasets = new List<SignTeacherDataset>();
+            this.Dataset = new List<DataSetInstance>();
         }
 
-        private List<SignTeacherDataset> LeapMotionDatasets { get; }
+        public OutputClass OutputClass { get; set; }
 
+        private List<DataSetInstance> Dataset { get; }
 
-        public void Add(SignTeacherDataset signTeacherDataset)
+        public void Add(DataSetInstance dataSetInstance)
         {
-            LeapMotionDatasets.Add(signTeacherDataset);
+            dataSetInstance.Class = OutputClass;
+            Dataset.Add(dataSetInstance);
         }
 
         public void ExportDataset()
         {
-            _excelExporter.Export(this.LeapMotionDatasets, nameof(LeapMotionDatasets), nameof(LeapMotionDatasets));
+            _excelExporter.Export(this.Dataset, nameof(Dataset), nameof(Dataset));
             Debug.WriteLine("Dataset exported to excel");
         }
     }

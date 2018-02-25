@@ -1,7 +1,8 @@
 ﻿using Autofac;
-using SignTeacher.GestureRecognize.Data;
 using SignTeacher.GestureRecognize.Excel;
 using SignTeacher.GestureRecognize.Excel.Interface;
+using SignTeacher.GestureRecognize.Wrapper;
+using SignTeacher.GestureRecognize.Wrapper.Interface;
 
 namespace SignTeacher.GestureRecognize
 {

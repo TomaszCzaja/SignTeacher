@@ -11,7 +11,7 @@ namespace SignTeacher.UI.LeapMotion
         {
             try
             {
-                if (eventArgs.frame.Id % 100 == 0)
+                if (eventArgs.frame.Id % 10 == 0)
                 {
                     OnHandle(sender, eventArgs);
                 }

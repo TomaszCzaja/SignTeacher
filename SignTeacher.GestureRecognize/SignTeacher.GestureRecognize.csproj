@@ -76,8 +76,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\DatasetWrapper.cs" />
-    <Compile Include="Data\IDatasetWrapper.cs" />
+    <Compile Include="Wrapper\DatasetWrapper.cs" />
+    <Compile Include="Wrapper\Interface\IDatasetWrapper.cs" />
     <Compile Include="Excel\ExcelWriter.cs" />
     <Compile Include="Excel\Interface\IExcelExporter.cs" />
     <Compile Include="GestureRecognizeServicesRegistry.cs" />

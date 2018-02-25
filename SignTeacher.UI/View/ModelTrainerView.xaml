@@ -12,15 +12,17 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="7" Orientation="Horizontal">
-            <Button Content="A" Width="55" Margin="10" 
-                    Command="{Binding SetClassCommand}" 
+            <Button Content="Fist" Width="55" Margin="10" 
+                    Command="{Binding ChooseClassCommand}" 
                     CommandParameter="{x:Static enum:OutputClass.Fist}"/>
-            <Button Content="B" Width="50" Margin="10" 
-                    Command="{Binding SetClassCommand}" 
+            <Button Content="FullHand" Width="50" Margin="10" 
+                    Command="{Binding ChooseClassCommand}" 
                     CommandParameter="{x:Static enum:OutputClass.FullHand}"/>
-            <Button Content="C" Width="50" Margin="10" 
-                    Command="{Binding SetClassCommand}" 
+            <Button Content="Peace" Width="50" Margin="10" 
+                    Command="{Binding ChooseClassCommand}" 
                     CommandParameter="{x:Static enum:OutputClass.Peace}"/>
+            <Button Content="Save" Width="50" Margin="10" 
+                    Command="{Binding SaveDataSet}"/>
         </StackPanel>
     </Grid>
 </UserControl>
