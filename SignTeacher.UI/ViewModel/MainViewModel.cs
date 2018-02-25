@@ -1,23 +1,38 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Windows.Input;
+using Autofac.Features.Indexed;
+using Prism.Commands;
 using SignTeacher.UI.ViewModel.Interface;
 
 namespace SignTeacher.UI.ViewModel
 {
-    public class MainViewModel
+    public class MainViewModel : ViewModelBase
     {
-        public MainViewModel(INavigationViewModel navigationViewModel, IUserDetailViewModel userDetailViewModel)
+        private IDetailViewModel _detailViewModel;
+        private readonly IIndex<string, IDetailViewModel> _detailViewModelCreator;
+
+        public MainViewModel(IIndex<string, IDetailViewModel> detailViewModelCreator)
         {
-            NavigationViewModel = navigationViewModel;
-            UserDetailViewModel = userDetailViewModel;
+            _detailViewModelCreator = detailViewModelCreator;
+
+            CreateDetailViewCommand = new DelegateCommand<Type>(OnCreateDetailView);
         }
 
-        public INavigationViewModel NavigationViewModel { get; }
+        public ICommand CreateDetailViewCommand { get; }
 
-        public IUserDetailViewModel UserDetailViewModel { get; }
-
-        public async Task LoadAsync()
+        public IDetailViewModel DetailViewModel
         {
-            await NavigationViewModel.LoadAsync();
+            get => _detailViewModel;
+            private set
+            {
+                _detailViewModel = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private void OnCreateDetailView(Type viewModelType)
+        {
+            DetailViewModel = _detailViewModelCreator[viewModelType.Name];
         }
     }
 }

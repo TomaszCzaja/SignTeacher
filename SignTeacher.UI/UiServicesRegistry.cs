@@ -15,14 +15,16 @@ namespace SignTeacher.UI
         {
             builder.RegisterType<MainWindow>().AsSelf();
             builder.RegisterType<MainViewModel>().AsSelf();
-            builder.RegisterType<NavigationViewModel>().As<INavigationViewModel>();
-            builder.RegisterType<UserDetailViewModel>().As<IUserDetailViewModel>();
+            builder.RegisterType<DecisionMakerViewModel>()
+                .Keyed<IDetailViewModel>(nameof(DecisionMakerViewModel));
+            builder.RegisterType<ModelTrainerViewModel>()
+                .Keyed<IDetailViewModel>(nameof(ModelTrainerViewModel));
 
             builder.RegisterType<LookupDataService>().AsImplementedInterfaces();
             builder.RegisterType<UserDataService>().As<IUserDataService>();
 
             builder.RegisterType<Controller>().AsSelf().SingleInstance();
-            builder.RegisterType<HandDataReader>().As<IFrameHandler>();
+            builder.RegisterType<HandDataReader>().As<IHandDataReader>();
         }
     }
 }

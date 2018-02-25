@@ -3,11 +3,11 @@
 namespace SignTeacher.UI.View
 {
     /// <summary>
-    /// Interaction logic for NavigationView.xaml
+    /// Interaction logic for UserDetailView.xaml
     /// </summary>
-    public partial class NavigationView : UserControl
+    public partial class ModelTrainerView : UserControl
     {
-        public NavigationView()
+        public ModelTrainerView()
         {
             InitializeComponent();
         }

@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Prism.Events;
@@ -8,6 +9,7 @@ using SignTeacher.UI.ViewModel.Interface;
 
 namespace SignTeacher.UI.ViewModel
 {
+    [Obsolete]
     public class NavigationViewModel : ViewModelBase, INavigationViewModel
     {
         private readonly IUserLookupDataService _userLookupDataService;

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Prism.Commands;
 using Prism.Events;
@@ -9,6 +10,7 @@ using SignTeacher.UI.ViewModel.Interface;
 
 namespace SignTeacher.UI.ViewModel
 {
+    [Obsolete]
     public class UserDetailViewModel : ViewModelBase, IUserDetailViewModel
     {
         private readonly IUserDataService _userDataService;

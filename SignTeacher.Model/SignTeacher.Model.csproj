@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dataset\SignTeacherDataset.cs" />
+    <Compile Include="Dataset\OutputClass.cs" />
     <Compile Include="LookupItem.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,5 +1,8 @@
-﻿namespace SignTeacher.UI.ViewModel
+﻿using System;
+
+namespace SignTeacher.UI.ViewModel
 {
+    [Obsolete]
     public class NavigationItemViewModel : ViewModelBase
     {
         private string _displayMember;

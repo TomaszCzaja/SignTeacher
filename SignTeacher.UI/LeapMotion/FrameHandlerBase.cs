@@ -5,7 +5,7 @@ using SignTeacher.UI.LeapMotion.Interface;
 
 namespace SignTeacher.UI.LeapMotion
 {
-    public abstract class FrameHandlerBase : IFrameHandler
+    public abstract class FrameHandlerBase : IHandDataReader
     {
         public void Handle(object sender, FrameEventArgs eventArgs)
         {
