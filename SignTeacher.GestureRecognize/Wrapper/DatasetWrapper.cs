@@ -7,20 +7,20 @@ using SignTeacher.Model.Enum;
 
 namespace SignTeacher.GestureRecognize.Wrapper
 {
-    public class DatasetWrapper : IDatasetWrapper
+    public class DataSetWrapper : IDataSetWrapper
     {
         private readonly IExcelExporter _excelExporter;
 
-        public DatasetWrapper(IExcelExporter excelExporter)
+        public DataSetWrapper(IExcelExporter excelExporter)
         {
             _excelExporter = excelExporter;
 
-            this.Dataset = new List<DataSetInstance>();
+            this.DataSet = new List<DataSetInstance>();
         }
 
         public OutputClass OutputClass { get; set; }
 
-        private List<DataSetInstance> Dataset { get; }
+        private List<DataSetInstance> DataSet { get; }
 
         public void Add(ControllerOutput controllerOutput)
         {
@@ -30,13 +30,13 @@ namespace SignTeacher.GestureRecognize.Wrapper
                 Class = OutputClass
             };
 
-            Dataset.Add(dataSetInstance);
+            DataSet.Add(dataSetInstance);
         }
 
         public void ExportDataset()
         {
-            _excelExporter.Export(this.Dataset, nameof(Dataset), nameof(Dataset));
-            Debug.WriteLine("Dataset exported to excel");
+            _excelExporter.Export(this.DataSet, nameof(DataSet), nameof(DataSet));
+            Debug.WriteLine("DataSet exported to excel");
         }
     }
 }

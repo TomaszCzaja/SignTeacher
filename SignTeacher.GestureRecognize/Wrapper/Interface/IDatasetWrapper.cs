@@ -3,7 +3,7 @@ using SignTeacher.Model.Enum;
 
 namespace SignTeacher.GestureRecognize.Wrapper.Interface
 {
-    public interface IDatasetWrapper
+    public interface IDataSetWrapper
     {
         void Add(ControllerOutput controllerOutput);
         void ExportDataset();

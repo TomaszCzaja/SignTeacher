@@ -10,11 +10,11 @@ namespace SignTeacher.UI.LeapMotion
 {
     public class ModelTrainerFrameHandler : FrameHandlerBase, IModelTrainerFrameHandler
     {
-        private readonly IDatasetWrapper _datasetWrapper;
+        private readonly IDataSetWrapper _dataSetWrapper;
 
-        public ModelTrainerFrameHandler(IDatasetWrapper datasetWrapper)
+        public ModelTrainerFrameHandler(IDataSetWrapper dataSetWrapper)
         {
-            _datasetWrapper = datasetWrapper;
+            _dataSetWrapper = dataSetWrapper;
         }
 
         protected override void OnHandle(object sender, FrameEventArgs eventArgs)
@@ -24,7 +24,7 @@ namespace SignTeacher.UI.LeapMotion
 
             if (rightHand == null) throw new ArgumentException("Right hand is required!");
 
-            _datasetWrapper.Add(new ControllerOutput()
+            _dataSetWrapper.Add(new ControllerOutput()
             {
                 GrabAngle = rightHand.GrabAngle
             });

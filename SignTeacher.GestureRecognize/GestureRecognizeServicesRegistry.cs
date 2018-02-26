@@ -13,7 +13,7 @@ namespace SignTeacher.GestureRecognize
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<ExcelExporter>().As<IExcelExporter>();
-            builder.RegisterType<DatasetWrapper>().As<IDatasetWrapper>().SingleInstance();
+            builder.RegisterType<DataSetWrapper>().As<IDataSetWrapper>().SingleInstance();
             builder.RegisterType<DecisionTreesClassifier>().As<IClassifier>().SingleInstance();
         }
     }

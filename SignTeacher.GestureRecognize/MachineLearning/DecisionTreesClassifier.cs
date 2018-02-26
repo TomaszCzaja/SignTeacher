@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Linq;
+using System.Reflection;
 using Accord.IO;
 using Accord.MachineLearning.DecisionTrees;
 using Accord.MachineLearning.DecisionTrees.Learning;
@@ -17,17 +18,27 @@ namespace SignTeacher.GestureRecognize.MachineLearning
 
         public void Learn()
         {
-            DataTable dataset = new ExcelReader("Dataset.xls").GetWorksheet("Dataset");
+            DataTable dataSet = new ExcelReader("DataSet.xls").GetWorksheet("DataSet");
+            var controllerOutputProperties = typeof(ControllerOutput)
+                .GetProperties()
+                .Select(x => x.Name)
+                .ToArray();
 
-            var inputs = dataset.ToJagged<double>("a");
-            var outputs = dataset.Columns["b"]
+            var inputs = dataSet.ToJagged<double>(controllerOutputProperties);
+            var outputs = dataSet.Columns["Class"]
                 .ToArray<string>()
-                .Select(x => (OutputClass)Enum.Parse(typeof(OutputClass), x))
+                .Select(x => Enum.Parse(typeof(OutputClass), x) as OutputClass?)
+                .Where(x => x.HasValue)
                 .Select(x => (int) x)
                 .ToArray();
 
             var teacher = new C45Learning();
-            teacher.Attributes.Add(DecisionVariable.Continuous("a"));
+
+            foreach (var controllerOutputProperty in controllerOutputProperties)
+            {
+                teacher.Attributes.Add(DecisionVariable.Continuous(controllerOutputProperty));
+            }
+
             teacher.Join = 0;
 
             DecisionTree = teacher.Learn(inputs, outputs);
@@ -38,11 +49,13 @@ namespace SignTeacher.GestureRecognize.MachineLearning
             var input = controllerOutput
                 .GetType()
                 .GetProperties()
-                .Select(p =>
+                .Select(x =>
                 {
-                    var value = p.GetValue(controllerOutput);
-                    return (float) value;
+                    var value = x.GetValue(controllerOutput) as float?;
+                    return value;
                 })
+                .Where(x => x.HasValue)
+                .Select(x => x.Value)
                 .ToArray();
 
             var result = DecisionTree.Decide(input);

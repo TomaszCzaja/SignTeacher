@@ -23,7 +23,7 @@ namespace SignTeacher.GestureRecognize.Excel
             using (var excelFile = new ExcelPackage(file))
             {
                 var worksheet = excelFile.Workbook.Worksheets.Add(workSheetName);
-                worksheet.Cells["A1"].LoadFromCollection(collection);
+                worksheet.Cells["A1"].LoadFromCollection(collection, true);
                 excelFile.Save();
             }
         }

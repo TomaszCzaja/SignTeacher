@@ -12,16 +12,16 @@ namespace SignTeacher.UI.ViewModel
     public class ModelTrainerViewModel : IModelTrainerViewModel
     {
         private readonly IModelTrainerFrameHandler _modelTrainerHandler;
-        private readonly IDatasetWrapper _datasetWrapper;
+        private readonly IDataSetWrapper _dataSetWrapper;
         private readonly Controller _controller;
 
         public ModelTrainerViewModel(
             IModelTrainerFrameHandler modelTrainerFrameHandler, 
             Controller controller, 
-            IDatasetWrapper datasetWrapper)
+            IDataSetWrapper dataSetWrapper)
         {
             _controller = controller;
-            _datasetWrapper = datasetWrapper;
+            _dataSetWrapper = dataSetWrapper;
             _modelTrainerHandler = modelTrainerFrameHandler;
 
             _controller.FrameReady += _modelTrainerHandler.Handle;
@@ -43,12 +43,12 @@ namespace SignTeacher.UI.ViewModel
         {
             if (!outputClass.HasValue) throw new ArgumentException("ChooseClassCommand parameter can't be null");
 
-            _datasetWrapper.OutputClass = outputClass.Value;
+            _dataSetWrapper.OutputClass = outputClass.Value;
         }
 
         private void OnSaveDataSet()
         {
-            _datasetWrapper.ExportDataset();
+            _dataSetWrapper.ExportDataset();
         }
     }
 }
