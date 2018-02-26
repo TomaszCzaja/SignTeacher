@@ -1,52 +1,32 @@
-﻿using System;
-using System.Data;
-using System.Linq;
-using System.Reflection;
-using Accord.IO;
+﻿using System.Linq;
 using Accord.MachineLearning.DecisionTrees;
 using Accord.MachineLearning.DecisionTrees.Learning;
-using Accord.Math;
 using SignTeacher.GestureRecognize.MachineLearning.Interface;
 using SignTeacher.Model;
-using SignTeacher.Model.Enum;
 
 namespace SignTeacher.GestureRecognize.MachineLearning
 {
-    public class DecisionTreesClassifier : IClassifier
+    public class DecisionTreesClassifier : ClassifierBase, IClassifier
     {
         private DecisionTree DecisionTree { get; set; }
 
         public void Learn()
         {
-            DataTable dataSet = new ExcelReader("DataSet.xls").GetWorksheet("DataSet");
-            var controllerOutputProperties = typeof(ControllerOutput)
-                .GetProperties()
-                .Select(x => x.Name)
-                .ToArray();
+            var inputs = GetInputs();
+            var outputs = GetOutputs();
+            var teacher = new C45Learning {Join = 0};
 
-            var inputs = dataSet.ToJagged<double>(controllerOutputProperties);
-            var outputs = dataSet.Columns["Class"]
-                .ToArray<string>()
-                .Select(x => Enum.Parse(typeof(OutputClass), x) as OutputClass?)
-                .Where(x => x.HasValue)
-                .Select(x => (int) x)
-                .ToArray();
-
-            var teacher = new C45Learning();
-
-            foreach (var controllerOutputProperty in controllerOutputProperties)
+            foreach (var controllerOutputProperty in GetControllerOutputProperties())
             {
                 teacher.Attributes.Add(DecisionVariable.Continuous(controllerOutputProperty));
             }
-
-            teacher.Join = 0;
 
             DecisionTree = teacher.Learn(inputs, outputs);
         }
 
         public int Decide(ControllerOutput controllerOutput)
         {
-            var input = controllerOutput
+            var inputs = controllerOutput
                 .GetType()
                 .GetProperties()
                 .Select(x =>
@@ -58,7 +38,7 @@ namespace SignTeacher.GestureRecognize.MachineLearning
                 .Select(x => x.Value)
                 .ToArray();
 
-            var result = DecisionTree.Decide(input);
+            var result = DecisionTree.Decide(inputs);
 
             return result;
         }
