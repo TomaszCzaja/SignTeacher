@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Accord.MachineLearning.DecisionTrees;
+﻿using Accord.MachineLearning.DecisionTrees;
 using Accord.MachineLearning.DecisionTrees.Learning;
 using SignTeacher.GestureRecognize.MachineLearning.Interface;
 using SignTeacher.Model;
@@ -12,7 +11,7 @@ namespace SignTeacher.GestureRecognize.MachineLearning
 
         public void Learn()
         {
-            var inputs = GetInputs();
+            var inputs = GetLearnInputs();
             var outputs = GetOutputs();
             var teacher = new C45Learning {Join = 0};
 
@@ -26,18 +25,7 @@ namespace SignTeacher.GestureRecognize.MachineLearning
 
         public int Decide(ControllerOutput controllerOutput)
         {
-            var inputs = controllerOutput
-                .GetType()
-                .GetProperties()
-                .Select(x =>
-                {
-                    var value = x.GetValue(controllerOutput) as float?;
-                    return value;
-                })
-                .Where(x => x.HasValue)
-                .Select(x => x.Value)
-                .ToArray();
-
+            var inputs = GetDecideInputs(controllerOutput);
             var result = DecisionTree.Decide(inputs);
 
             return result;

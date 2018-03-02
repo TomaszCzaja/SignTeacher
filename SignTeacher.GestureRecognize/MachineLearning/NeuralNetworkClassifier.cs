@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Accord.Math;
+﻿using Accord.Math;
 using Accord.Neuro;
 using Accord.Neuro.Learning;
 using SignTeacher.GestureRecognize.MachineLearning.Interface;
@@ -18,7 +17,7 @@ namespace SignTeacher.GestureRecognize.MachineLearning
             const int hiddenNeurons = 5;
 
             var outputs = Accord.Statistics.Tools.Expand(GetOutputs(), numberOfClasses, -1, 1);
-            var inputs = GetInputs();
+            var inputs = GetLearnInputs();
 
             var activationFunction = new BipolarSigmoidFunction(2);
             NeuralNetwork = new ActivationNetwork(activationFunction, numberOfInputs, hiddenNeurons, numberOfClasses);
@@ -33,19 +32,7 @@ namespace SignTeacher.GestureRecognize.MachineLearning
 
         public int Decide(ControllerOutput controllerOutput)
         {
-            var inputs = controllerOutput
-                .GetType()
-                .GetProperties()
-                .Select(x =>
-                {
-                    var value = x.GetValue(controllerOutput) as float?;
-                    return value;
-                })
-                .Where(x => x.HasValue)
-                .Select(x => x.Value)
-                .ToArray()
-                .ToDouble();
-
+            var inputs = GetDecideInputs(controllerOutput);
             var output = NeuralNetwork.Compute(inputs).Max(out var result);
 
             return result;

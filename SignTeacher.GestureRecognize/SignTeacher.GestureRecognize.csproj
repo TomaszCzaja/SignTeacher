@@ -85,6 +85,7 @@
     <Compile Include="MachineLearning\ClassifierBase.cs" />
     <Compile Include="MachineLearning\DecisionTreesClassifier.cs" />
     <Compile Include="MachineLearning\Interface\IClassifier.cs" />
+    <Compile Include="MachineLearning\KnnClassifier.cs" />
     <Compile Include="MachineLearning\NeuralNetworkClassifier.cs" />
     <Compile Include="Wrapper\DatasetWrapper.cs" />
     <Compile Include="Wrapper\Interface\IDatasetWrapper.cs" />

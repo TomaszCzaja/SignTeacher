@@ -10,7 +10,7 @@ namespace SignTeacher.GestureRecognize.MachineLearning
 {
     public abstract class ClassifierBase
     {
-        protected double[][] GetInputs()
+        protected double[][] GetLearnInputs()
         {
             var dataSet = GetDataSetFromExcel();
             var controllerOutputProperties = GetControllerOutputProperties();
@@ -18,6 +18,24 @@ namespace SignTeacher.GestureRecognize.MachineLearning
             var inputs = dataSet.ToJagged<double>(controllerOutputProperties);
 
             return inputs;
+        }
+
+        protected double[] GetDecideInputs(ControllerOutput controllerOutput)
+        {
+            var result = controllerOutput
+                .GetType()
+                .GetProperties()
+                .Select(x =>
+                {
+                    var value = x.GetValue(controllerOutput) as float?;
+                    return value;
+                })
+                .Where(x => x.HasValue)
+                .Select(x => x.Value)
+                .ToArray()
+                .ToDouble();
+
+            return result;
         }
 
         protected int[] GetOutputs()
