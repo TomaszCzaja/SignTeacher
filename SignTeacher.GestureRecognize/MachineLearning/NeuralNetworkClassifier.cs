@@ -27,7 +27,7 @@ namespace SignTeacher.GestureRecognize.MachineLearning
 
             var teacher = new LevenbergMarquardtLearning(NeuralNetwork);
 
-            for (int i = 0; i < 10; i++)
+            for (var i = 0; i < 10; i++)
                 teacher.RunEpoch(inputs, outputs);
         }
 

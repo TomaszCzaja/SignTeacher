@@ -19,8 +19,8 @@ namespace SignTeacher.UI.LeapMotion
 
         protected override void OnHandle(object sender, FrameEventArgs eventArgs)
         {
-            Frame frame = eventArgs.frame;
-            Hand rightHand = frame.Hands.FirstOrDefault(hand => hand.IsRight);
+            var frame = eventArgs.frame;
+            var rightHand = frame.Hands.FirstOrDefault(hand => hand.IsRight);
 
             if (rightHand == null) throw new ArgumentException("Right hand is required!");
 

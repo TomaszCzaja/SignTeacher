@@ -32,7 +32,7 @@ namespace SignTeacher.GestureRecognize.Excel
         {
             if (Path.HasExtension(fileName))
             {
-                string ext = Path.GetExtension(fileName);
+                var ext = Path.GetExtension(fileName);
 
                 if (ext != ".xlsx")
                 {
