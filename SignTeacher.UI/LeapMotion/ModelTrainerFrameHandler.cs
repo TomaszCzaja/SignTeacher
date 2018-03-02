@@ -24,10 +24,33 @@ namespace SignTeacher.UI.LeapMotion
 
             if (rightHand == null) throw new ArgumentException("Right hand is required!");
 
-            _dataSetWrapper.Add(new ControllerOutput()
+            var isThumbExtended = rightHand.Fingers
+                .Single(finger => finger.Type == Finger.FingerType.TYPE_THUMB)
+                .IsExtended;
+            var isIndexExtended = rightHand.Fingers
+                .Single(finger => finger.Type == Finger.FingerType.TYPE_INDEX)
+                .IsExtended;
+            var isRingExtended = rightHand.Fingers
+                .Single(finger => finger.Type == Finger.FingerType.TYPE_RING)
+                .IsExtended;
+            var isMiddleExtended = rightHand.Fingers
+                .Single(finger => finger.Type == Finger.FingerType.TYPE_MIDDLE)
+                .IsExtended;
+            var isPinkyExtended = rightHand.Fingers
+                .Single(finger => finger.Type == Finger.FingerType.TYPE_PINKY)
+                .IsExtended;
+
+            var controllerOutput = new ControllerOutput()
             {
-                GrabAngle = rightHand.GrabAngle
-            });
+                GrabAngle = rightHand.GrabAngle,
+                IsThumbExtended = Convert.ToSingle(isThumbExtended),
+                IsIndexExtended = Convert.ToSingle(isIndexExtended),
+                IsMiddleExtended = Convert.ToSingle(isMiddleExtended),
+                IsPinkyExtended = Convert.ToSingle(isPinkyExtended),
+                IsRingExtended = Convert.ToSingle(isRingExtended)
+            };
+
+            _dataSetWrapper.Add(controllerOutput);
 
             Debug.WriteLine(rightHand.GrabAngle);
         }

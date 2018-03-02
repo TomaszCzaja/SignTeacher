@@ -1,8 +1,10 @@
-﻿using Accord.Math;
+﻿using System;
+using Accord.Math;
 using Accord.Neuro;
 using Accord.Neuro.Learning;
 using SignTeacher.GestureRecognize.MachineLearning.Interface;
 using SignTeacher.Model;
+using SignTeacher.Model.Enum;
 
 namespace SignTeacher.GestureRecognize.MachineLearning
 {
@@ -12,9 +14,9 @@ namespace SignTeacher.GestureRecognize.MachineLearning
 
         public void Learn()
         {
-            const int numberOfInputs = 1;
-            const int numberOfClasses = 3;
             const int hiddenNeurons = 5;
+            var numberOfInputs = GetControllerOutputProperties().Length;
+            var numberOfClasses = Enum.GetNames(typeof(OutputClass)).Length;
 
             var outputs = Accord.Statistics.Tools.Expand(GetOutputs(), numberOfClasses, -1, 1);
             var inputs = GetLearnInputs();

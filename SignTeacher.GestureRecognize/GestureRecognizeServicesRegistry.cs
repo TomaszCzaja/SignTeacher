@@ -14,7 +14,7 @@ namespace SignTeacher.GestureRecognize
         {
             builder.RegisterType<ExcelExporter>().As<IExcelExporter>();
             builder.RegisterType<DataSetWrapper>().As<IDataSetWrapper>().SingleInstance();
-            builder.RegisterType<KnnClassifier>().As<IClassifier>().SingleInstance();
+            builder.RegisterType<DecisionTreesClassifier>().As<IClassifier>().SingleInstance();
         }
     }
 }

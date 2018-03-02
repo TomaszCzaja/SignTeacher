@@ -27,6 +27,11 @@ namespace SignTeacher.GestureRecognize.Wrapper
             var dataSetInstance = new DataSetInstance()
             {
                 GrabAngle = controllerOutput.GrabAngle,
+                IsThumbExtended = controllerOutput.IsThumbExtended,
+                IsIndexExtended = controllerOutput.IsIndexExtended,
+                IsMiddleExtended = controllerOutput.IsMiddleExtended,
+                IsPinkyExtended = controllerOutput.IsPinkyExtended,
+                IsRingExtended = controllerOutput.IsRingExtended,
                 Class = OutputClass
             };
 
