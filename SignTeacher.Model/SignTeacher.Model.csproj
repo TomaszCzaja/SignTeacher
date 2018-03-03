@@ -33,6 +33,9 @@
     <Reference Include="Autofac, Version=4.6.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.4.6.2\lib\net45\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="LeapCSharp.NET4.5">
+      <HintPath>..\SignTeacher.UI\LeapMotionSDK\LeapCSharp.NET4.5.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -50,16 +53,17 @@
   <ItemGroup>
     <Compile Include="AppModel\ControllerOutput.cs" />
     <Compile Include="AppModel\DataSetInstance.cs" />
+    <Compile Include="Builder\ControllerOutputBuilder.cs" />
+    <Compile Include="Builder\Interface\IControllerOutputBuilder.cs" />
     <Compile Include="Enum\OutputClass.cs" />
     <Compile Include="AppModel\LookupItem.cs" />
     <Compile Include="AppModel\User.cs" />
+    <Compile Include="ModelServicesRegistry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Builder\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

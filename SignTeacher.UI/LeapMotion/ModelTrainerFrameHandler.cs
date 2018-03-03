@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Linq;
 using Leap;
 using SignTeacher.GestureRecognize.Wrapper.Interface;
-using SignTeacher.Model.AppModel;
+using SignTeacher.Model.Builder.Interface;
 using SignTeacher.UI.LeapMotion.Interface;
 
 namespace SignTeacher.UI.LeapMotion
@@ -11,10 +11,12 @@ namespace SignTeacher.UI.LeapMotion
     public class ModelTrainerFrameHandler : FrameHandlerBase, IModelTrainerFrameHandler
     {
         private readonly IDataSetWrapper _dataSetWrapper;
+        private readonly IControllerOutputBuilder _controllerOutputBuilder;
 
-        public ModelTrainerFrameHandler(IDataSetWrapper dataSetWrapper)
+        public ModelTrainerFrameHandler(IDataSetWrapper dataSetWrapper, IControllerOutputBuilder controllerOutputBuilder)
         {
             _dataSetWrapper = dataSetWrapper;
+            _controllerOutputBuilder = controllerOutputBuilder;
         }
 
         protected override void OnHandle(object sender, FrameEventArgs eventArgs)
@@ -24,32 +26,7 @@ namespace SignTeacher.UI.LeapMotion
 
             if (rightHand == null) throw new ArgumentException("Right hand is required!");
 
-            var isThumbExtended = rightHand.Fingers
-                .Single(finger => finger.Type == Finger.FingerType.TYPE_THUMB)
-                .IsExtended;
-            var isIndexExtended = rightHand.Fingers
-                .Single(finger => finger.Type == Finger.FingerType.TYPE_INDEX)
-                .IsExtended;
-            var isRingExtended = rightHand.Fingers
-                .Single(finger => finger.Type == Finger.FingerType.TYPE_RING)
-                .IsExtended;
-            var isMiddleExtended = rightHand.Fingers
-                .Single(finger => finger.Type == Finger.FingerType.TYPE_MIDDLE)
-                .IsExtended;
-            var isPinkyExtended = rightHand.Fingers
-                .Single(finger => finger.Type == Finger.FingerType.TYPE_PINKY)
-                .IsExtended;
-
-            var controllerOutput = new ControllerOutput()
-            {
-                GrabAngle = rightHand.GrabAngle,
-                IsThumbExtended = Convert.ToSingle(isThumbExtended),
-                IsIndexExtended = Convert.ToSingle(isIndexExtended),
-                IsMiddleExtended = Convert.ToSingle(isMiddleExtended),
-                IsPinkyExtended = Convert.ToSingle(isPinkyExtended),
-                IsRingExtended = Convert.ToSingle(isRingExtended)
-            };
-
+            var controllerOutput = _controllerOutputBuilder.GetControllerOutput(rightHand);
             _dataSetWrapper.Add(controllerOutput);
 
             Debug.WriteLine(rightHand.GrabAngle);
