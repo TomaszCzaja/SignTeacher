@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SignTeacher.Model
+namespace SignTeacher.Model.AppModel
 {
     public class User
     {

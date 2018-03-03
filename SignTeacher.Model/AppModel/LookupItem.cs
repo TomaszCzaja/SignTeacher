@@ -1,4 +1,4 @@
-﻿namespace SignTeacher.Model
+﻿namespace SignTeacher.Model.AppModel
 {
     public class LookupItem
     {

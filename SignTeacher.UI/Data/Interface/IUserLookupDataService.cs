@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using SignTeacher.Model;
+using SignTeacher.Model.AppModel;
 
 namespace SignTeacher.UI.Data.Interface
 {

@@ -1,4 +1,4 @@
-﻿using SignTeacher.Model;
+﻿using SignTeacher.Model.AppModel;
 using SignTeacher.Model.Enum;
 
 namespace SignTeacher.GestureRecognize.Wrapper.Interface

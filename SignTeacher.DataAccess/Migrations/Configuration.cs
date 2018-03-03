@@ -1,5 +1,5 @@
 using System.Data.Entity.Migrations;
-using SignTeacher.Model;
+using SignTeacher.Model.AppModel;
 
 namespace SignTeacher.DataAccess.Migrations
 {

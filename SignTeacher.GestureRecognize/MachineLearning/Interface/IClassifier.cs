@@ -1,4 +1,4 @@
-﻿using SignTeacher.Model;
+﻿using SignTeacher.Model.AppModel;
 
 namespace SignTeacher.GestureRecognize.MachineLearning.Interface
 {

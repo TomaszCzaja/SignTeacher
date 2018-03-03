@@ -1,5 +1,5 @@
 ﻿using Accord.MachineLearning;
-using SignTeacher.Model;
+using SignTeacher.Model.AppModel;
 using IClassifier = SignTeacher.GestureRecognize.MachineLearning.Interface.IClassifier;
 
 namespace SignTeacher.GestureRecognize.MachineLearning

@@ -3,7 +3,7 @@ using System.Data;
 using System.Linq;
 using Accord.IO;
 using Accord.Math;
-using SignTeacher.Model;
+using SignTeacher.Model.AppModel;
 using SignTeacher.Model.Enum;
 
 namespace SignTeacher.GestureRecognize.MachineLearning

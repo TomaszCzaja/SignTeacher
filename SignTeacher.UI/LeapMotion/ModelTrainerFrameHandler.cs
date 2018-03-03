@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Linq;
 using Leap;
 using SignTeacher.GestureRecognize.Wrapper.Interface;
-using SignTeacher.Model;
+using SignTeacher.Model.AppModel;
 using SignTeacher.UI.LeapMotion.Interface;
 
 namespace SignTeacher.UI.LeapMotion

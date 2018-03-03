@@ -4,7 +4,7 @@ using System.Linq;
 using Leap;
 using Prism.Events;
 using SignTeacher.GestureRecognize.MachineLearning.Interface;
-using SignTeacher.Model;
+using SignTeacher.Model.AppModel;
 using SignTeacher.Model.Enum;
 using SignTeacher.UI.Event;
 using SignTeacher.UI.LeapMotion.Interface;

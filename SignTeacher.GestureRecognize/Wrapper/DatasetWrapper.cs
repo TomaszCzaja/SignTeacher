@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using SignTeacher.GestureRecognize.Excel.Interface;
 using SignTeacher.GestureRecognize.Wrapper.Interface;
-using SignTeacher.Model;
+using SignTeacher.Model.AppModel;
 using SignTeacher.Model.Enum;
 
 namespace SignTeacher.GestureRecognize.Wrapper

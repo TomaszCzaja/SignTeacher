@@ -1,6 +1,6 @@
-﻿using SignTeacher.Model;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using SignTeacher.Model.AppModel;
 
 namespace SignTeacher.DataAccess
 {

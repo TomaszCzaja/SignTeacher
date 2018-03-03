@@ -1,6 +1,5 @@
 namespace SignTeacher.DataAccess.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
     
     public partial class Validation : DbMigration

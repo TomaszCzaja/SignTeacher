@@ -1,7 +1,7 @@
 ﻿using Accord.MachineLearning.DecisionTrees;
 using Accord.MachineLearning.DecisionTrees.Learning;
 using SignTeacher.GestureRecognize.MachineLearning.Interface;
-using SignTeacher.Model;
+using SignTeacher.Model.AppModel;
 
 namespace SignTeacher.GestureRecognize.MachineLearning
 {

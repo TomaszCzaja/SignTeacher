@@ -3,7 +3,7 @@ using Accord.Math;
 using Accord.Neuro;
 using Accord.Neuro.Learning;
 using SignTeacher.GestureRecognize.MachineLearning.Interface;
-using SignTeacher.Model;
+using SignTeacher.Model.AppModel;
 using SignTeacher.Model.Enum;
 
 namespace SignTeacher.GestureRecognize.MachineLearning

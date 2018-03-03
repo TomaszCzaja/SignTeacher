@@ -2,7 +2,7 @@
 using System.Data.Entity;
 using System.Threading.Tasks;
 using SignTeacher.DataAccess;
-using SignTeacher.Model;
+using SignTeacher.Model.AppModel;
 using SignTeacher.UI.Data.Interface;
 
 namespace SignTeacher.UI.Data
