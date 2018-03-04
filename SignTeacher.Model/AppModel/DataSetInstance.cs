@@ -22,7 +22,7 @@ namespace SignTeacher.Model.AppModel
 
         public float MiddleRingAngle { get; set; }
 
-        public float RingIndexAngle { get; set; }
+        public float RingPinkyAngle { get; set; }
 
         public OutputClass Class { get; set; }
 

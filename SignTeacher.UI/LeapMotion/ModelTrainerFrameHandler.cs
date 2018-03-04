@@ -29,7 +29,7 @@ namespace SignTeacher.UI.LeapMotion
             var controllerOutput = _controllerOutputBuilder.GetControllerOutput(rightHand);
             _dataSetWrapper.Add(controllerOutput);
 
-            Debug.WriteLine(rightHand.GrabAngle);
+            Debug.WriteLine($"{controllerOutput.IndexMiddleAngle} {controllerOutput.MiddleRingAngle} {controllerOutput.ThumbIndexAngle} {controllerOutput.RingPinkyAngle}");
         }
     }
 }

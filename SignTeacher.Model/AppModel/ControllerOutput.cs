@@ -20,6 +20,6 @@
 
         public float MiddleRingAngle { get; set; }
 
-        public float RingIndexAngle { get; set; }
+        public float RingPinkyAngle { get; set; }
     }
 }

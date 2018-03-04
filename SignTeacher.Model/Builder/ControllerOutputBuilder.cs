@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Windows.Media.Media3D;
 using Leap;
 using SignTeacher.Model.AppModel;
 using SignTeacher.Model.Builder.Interface;
@@ -34,8 +33,8 @@ namespace SignTeacher.Model.Builder
                     GetAngleBetweenFingers(hand, Finger.FingerType.TYPE_INDEX, Finger.FingerType.TYPE_MIDDLE),
                 MiddleRingAngle = 
                     GetAngleBetweenFingers(hand, Finger.FingerType.TYPE_MIDDLE, Finger.FingerType.TYPE_RING),
-                RingIndexAngle = 
-                    GetAngleBetweenFingers(hand, Finger.FingerType.TYPE_RING, Finger.FingerType.TYPE_INDEX)
+                RingPinkyAngle = 
+                    GetAngleBetweenFingers(hand, Finger.FingerType.TYPE_RING, Finger.FingerType.TYPE_PINKY)
             };
         }
 
