@@ -2,8 +2,13 @@
 {
     public enum OutputClass
     {
-        Fist, // 0
-        Peace, // 1
-        FullHand // 2
+        A,
+        B,
+        C,
+        E,
+        O,
+        P,
+        S,
+        Three
     }
 }

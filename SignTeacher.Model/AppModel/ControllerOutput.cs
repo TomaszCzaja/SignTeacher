@@ -13,5 +13,13 @@
         public float IsRingExtended { get; set; }
 
         public float IsPinkyExtended { get; set; }
+
+        public float ThumbIndexAngle { get; set; }
+
+        public float IndexMiddleAngle { get; set; }
+
+        public float MiddleRingAngle { get; set; }
+
+        public float RingIndexAngle { get; set; }
     }
 }
