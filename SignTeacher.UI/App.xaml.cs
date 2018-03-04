@@ -10,6 +10,8 @@ namespace SignTeacher.UI
     {
         private void App_OnStartup(object sender, StartupEventArgs e)
         {
+            AutoMapperConfig.RegisterMappings();
+
             var bootstraper = new Bootstrapper();
             var container = bootstraper.Bootstrap();
 

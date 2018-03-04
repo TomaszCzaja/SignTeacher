@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
+using AutoMapper;
 using SignTeacher.GestureRecognize.Excel.Interface;
 using SignTeacher.GestureRecognize.Wrapper.Interface;
 using SignTeacher.Model.AppModel;
@@ -24,16 +25,8 @@ namespace SignTeacher.GestureRecognize.Wrapper
 
         public void Add(ControllerOutput controllerOutput)
         {
-            var dataSetInstance = new DataSetInstance()
-            {
-                GrabAngle = controllerOutput.GrabAngle,
-                IsThumbExtended = controllerOutput.IsThumbExtended,
-                IsIndexExtended = controllerOutput.IsIndexExtended,
-                IsMiddleExtended = controllerOutput.IsMiddleExtended,
-                IsPinkyExtended = controllerOutput.IsPinkyExtended,
-                IsRingExtended = controllerOutput.IsRingExtended,
-                Class = OutputClass
-            };
+            var dataSetInstance = Mapper.Map<DataSetInstance>(controllerOutput);
+            dataSetInstance.SetClass(OutputClass);
 
             DataSet.Add(dataSetInstance);
         }

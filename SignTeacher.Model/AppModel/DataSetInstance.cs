@@ -17,5 +17,10 @@ namespace SignTeacher.Model.AppModel
         public float IsPinkyExtended { get; set; }
 
         public OutputClass Class { get; set; }
+
+        public void SetClass(OutputClass outputClass)
+        {
+            Class = outputClass;
+        }
     }
 }
