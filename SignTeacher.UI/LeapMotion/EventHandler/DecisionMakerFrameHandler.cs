@@ -46,7 +46,7 @@ namespace SignTeacher.UI.LeapMotion.EventHandler
                     });
 
 
-            Debug.WriteLine(controllerOutput);
+            Debug.WriteLine((OutputClass)decision);
         }
     }
 }

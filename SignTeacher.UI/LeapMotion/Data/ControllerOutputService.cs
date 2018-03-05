@@ -41,7 +41,7 @@ namespace SignTeacher.UI.LeapMotion.Data
 
             var angleBetween = firstFingerLeapVector.AngleTo(secondFingerLeapVector);
 
-            return angleBetween;
+            return angleBetween * 57;
         }
 
         private float IsFingerExtended(Hand hand, Finger.FingerType fingerType)
