@@ -10,7 +10,7 @@ namespace SignTeacher.UI.ViewModel
     {
         private readonly IDecisionMakerFrameHandler _decisionMakerFrameHandler;
         private readonly Controller _controller;
-        private string _classLabel;
+        private string _displayedImagePath;
 
         public DecisionMakerViewModel(
             IDecisionMakerFrameHandler decisionMakerFrameHandler,
@@ -24,12 +24,12 @@ namespace SignTeacher.UI.ViewModel
             eventAggregator.GetEvent<AfterDecisionEvent>().Subscribe(OnAfterDecisionEvent);
         }
 
-        public string ClassLabel
+        public string DisplayedImagePath
         {
-            get => _classLabel;
+            get => _displayedImagePath;
             set
             {
-                _classLabel = value;
+                _displayedImagePath = value;
                 OnPropertyChanged();
             }
         }
@@ -41,7 +41,8 @@ namespace SignTeacher.UI.ViewModel
 
         private void OnAfterDecisionEvent(AfterDecisionEventArgs afterDecisionEventArgs)
         {
-            ClassLabel = afterDecisionEventArgs.OutputClass.ToString();
+            var outputClass = afterDecisionEventArgs.OutputClass.ToString();
+            DisplayedImagePath = $"../Resources/{outputClass}.PNG";
         }
     }
 }

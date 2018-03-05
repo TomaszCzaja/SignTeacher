@@ -9,6 +9,6 @@
         O,
         P,
         S,
-        Three
+        Y
     }
 }

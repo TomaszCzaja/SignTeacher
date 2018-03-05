@@ -169,7 +169,78 @@
       <Name>SignTeacher.Model</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\A.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\B.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\C.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\D.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\E.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\F.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\G.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\H.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\I.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\K.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\L.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\M.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\N.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\O.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\P.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Q.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\R.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\S.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\T.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\U.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\V.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\W.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\X.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Y.PNG" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy /yr "E:\Repositories\Magisterka\SignTeacher.UI\LeapMotionSDK\LeapC.dll" "$(TargetDir)"</PostBuildEvent>

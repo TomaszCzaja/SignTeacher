@@ -37,9 +37,9 @@
             <Button Content="S" Width="50" Margin="10" 
                     Command="{Binding ChooseClassCommand}" 
                     CommandParameter="{x:Static enum:OutputClass.S}"/>
-            <Button Content="Three" Width="50" Margin="10" 
+            <Button Content="Y" Width="50" Margin="10" 
                     Command="{Binding ChooseClassCommand}" 
-                    CommandParameter="{x:Static enum:OutputClass.Three}"/>
+                    CommandParameter="{x:Static enum:OutputClass.Y}"/>
         </StackPanel>
         <StackPanel Grid.Row="3" Orientation="Horizontal">
             <Button Content="Save" Width="50" Margin="10" 

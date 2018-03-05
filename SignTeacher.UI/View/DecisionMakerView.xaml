@@ -8,17 +8,8 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition />
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBox Grid.Row="9" Text="{Binding ClassLabel, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <Image Source="{Binding DisplayedImagePath, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Stretch="Fill"  Height="100" Width="100"/>
     </Grid>
 </UserControl>
