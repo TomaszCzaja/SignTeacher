@@ -1,6 +1,6 @@
 ﻿using Leap;
 
-namespace SignTeacher.UI.LeapMotion.Interface
+namespace SignTeacher.UI.LeapMotion.EventHandler.Interface
 {
     public interface IFrameHandler
     {

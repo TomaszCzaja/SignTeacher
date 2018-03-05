@@ -3,20 +3,20 @@ using System.Diagnostics;
 using System.Linq;
 using Leap;
 using SignTeacher.GestureRecognize.Wrapper.Interface;
-using SignTeacher.Model.Builder.Interface;
-using SignTeacher.UI.LeapMotion.Interface;
+using SignTeacher.UI.LeapMotion.Data.Interface;
+using SignTeacher.UI.LeapMotion.EventHandler.Interface;
 
-namespace SignTeacher.UI.LeapMotion
+namespace SignTeacher.UI.LeapMotion.EventHandler
 {
     public class ModelTrainerFrameHandler : FrameHandlerBase, IModelTrainerFrameHandler
     {
         private readonly IDataSetWrapper _dataSetWrapper;
-        private readonly IControllerOutputBuilder _controllerOutputBuilder;
+        private readonly IControllerOutputService _controllerOutputService;
 
-        public ModelTrainerFrameHandler(IDataSetWrapper dataSetWrapper, IControllerOutputBuilder controllerOutputBuilder)
+        public ModelTrainerFrameHandler(IDataSetWrapper dataSetWrapper, IControllerOutputService controllerOutputService)
         {
             _dataSetWrapper = dataSetWrapper;
-            _controllerOutputBuilder = controllerOutputBuilder;
+            _controllerOutputService = controllerOutputService;
         }
 
         protected override void OnHandle(object sender, FrameEventArgs eventArgs)
@@ -26,7 +26,7 @@ namespace SignTeacher.UI.LeapMotion
 
             if (rightHand == null) throw new ArgumentException("Right hand is required!");
 
-            var controllerOutput = _controllerOutputBuilder.GetControllerOutput(rightHand);
+            var controllerOutput = _controllerOutputService.GetControllerOutput(rightHand);
             _dataSetWrapper.Add(controllerOutput);
 
             Debug.WriteLine($"{controllerOutput.IndexMiddleAngle} {controllerOutput.MiddleRingAngle} {controllerOutput.ThumbIndexAngle} {controllerOutput.RingPinkyAngle}");

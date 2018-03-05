@@ -1,9 +1,9 @@
 ﻿using Leap;
 using SignTeacher.Model.AppModel;
 
-namespace SignTeacher.Model.Builder.Interface
+namespace SignTeacher.UI.LeapMotion.Data.Interface
 {
-    public interface IControllerOutputBuilder
+    public interface IControllerOutputService
     {
         ControllerOutput GetControllerOutput(Hand hand);
     }

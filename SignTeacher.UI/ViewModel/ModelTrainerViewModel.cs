@@ -4,7 +4,7 @@ using Leap;
 using Prism.Commands;
 using SignTeacher.GestureRecognize.Wrapper.Interface;
 using SignTeacher.Model.Enum;
-using SignTeacher.UI.LeapMotion.Interface;
+using SignTeacher.UI.LeapMotion.EventHandler.Interface;
 using SignTeacher.UI.ViewModel.Interface;
 
 namespace SignTeacher.UI.ViewModel

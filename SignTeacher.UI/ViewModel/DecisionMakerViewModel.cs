@@ -1,7 +1,7 @@
 using Leap;
 using Prism.Events;
 using SignTeacher.UI.Event;
-using SignTeacher.UI.LeapMotion.Interface;
+using SignTeacher.UI.LeapMotion.EventHandler.Interface;
 using SignTeacher.UI.ViewModel.Interface;
 
 namespace SignTeacher.UI.ViewModel

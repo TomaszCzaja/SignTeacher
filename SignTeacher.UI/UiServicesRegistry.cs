@@ -2,8 +2,10 @@
 using Leap;
 using SignTeacher.UI.Data;
 using SignTeacher.UI.Data.Interface;
-using SignTeacher.UI.LeapMotion;
-using SignTeacher.UI.LeapMotion.Interface;
+using SignTeacher.UI.LeapMotion.Data;
+using SignTeacher.UI.LeapMotion.Data.Interface;
+using SignTeacher.UI.LeapMotion.EventHandler;
+using SignTeacher.UI.LeapMotion.EventHandler.Interface;
 using SignTeacher.UI.ViewModel;
 using SignTeacher.UI.ViewModel.Interface;
 
@@ -27,6 +29,7 @@ namespace SignTeacher.UI
             builder.RegisterType<Controller>().AsSelf().SingleInstance();
             builder.RegisterType<ModelTrainerFrameHandler>().As<IModelTrainerFrameHandler>();
             builder.RegisterType<DecisionMakerFrameHandler>().As<IDecisionMakerFrameHandler>();
+            builder.RegisterType<ControllerOutputService>().As<IControllerOutputService>();
         }
     }
 }

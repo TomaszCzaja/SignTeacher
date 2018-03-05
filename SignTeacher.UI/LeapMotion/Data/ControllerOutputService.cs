@@ -2,24 +2,15 @@
 using System.Linq;
 using Leap;
 using SignTeacher.Model.AppModel;
-using SignTeacher.Model.Builder.Interface;
+using SignTeacher.UI.LeapMotion.Data.Interface;
 
-namespace SignTeacher.Model.Builder
+namespace SignTeacher.UI.LeapMotion.Data
 {
-    public class ControllerOutputBuilder : IControllerOutputBuilder
+    public class ControllerOutputService : IControllerOutputService
     {
-        protected ControllerOutput ControllerOutput { get; set; }
-
         public ControllerOutput GetControllerOutput(Hand hand)
         {
-            CreateControllerOutput(hand);
-
-            return ControllerOutput;
-        }
-
-        private void CreateControllerOutput(Hand hand)
-        {
-            ControllerOutput = new ControllerOutput()
+            var controllerOutput = new ControllerOutput()
             {
                 GrabAngle = hand.GrabAngle,
                 IsThumbExtended = IsFingerExtended(hand, Finger.FingerType.TYPE_THUMB),
@@ -29,17 +20,19 @@ namespace SignTeacher.Model.Builder
                 IsRingExtended = IsFingerExtended(hand, Finger.FingerType.TYPE_RING),
                 ThumbIndexAngle =
                     GetAngleBetweenFingers(hand, Finger.FingerType.TYPE_THUMB, Finger.FingerType.TYPE_INDEX),
-                IndexMiddleAngle = 
+                IndexMiddleAngle =
                     GetAngleBetweenFingers(hand, Finger.FingerType.TYPE_INDEX, Finger.FingerType.TYPE_MIDDLE),
-                MiddleRingAngle = 
+                MiddleRingAngle =
                     GetAngleBetweenFingers(hand, Finger.FingerType.TYPE_MIDDLE, Finger.FingerType.TYPE_RING),
-                RingPinkyAngle = 
+                RingPinkyAngle =
                     GetAngleBetweenFingers(hand, Finger.FingerType.TYPE_RING, Finger.FingerType.TYPE_PINKY)
             };
+
+            return controllerOutput;
         }
 
         private float GetAngleBetweenFingers(
-            Hand hand, 
+            Hand hand,
             Finger.FingerType firstFingerType,
             Finger.FingerType secondFingerType)
         {
@@ -59,6 +52,6 @@ namespace SignTeacher.Model.Builder
         }
 
         private Finger GetFinger(Hand hand, Finger.FingerType fingerType)
-            => hand.Fingers .Single(finger => finger.Type == fingerType);
+            => hand.Fingers.Single(finger => finger.Type == fingerType);
     }
 }

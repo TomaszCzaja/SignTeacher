@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
 using Leap;
-using SignTeacher.UI.LeapMotion.Interface;
+using SignTeacher.UI.LeapMotion.EventHandler.Interface;
 
-namespace SignTeacher.UI.LeapMotion
+namespace SignTeacher.UI.LeapMotion.EventHandler
 {
     public abstract class FrameHandlerBase : IFrameHandler
     {

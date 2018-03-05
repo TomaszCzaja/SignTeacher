@@ -4,27 +4,27 @@ using System.Linq;
 using Leap;
 using Prism.Events;
 using SignTeacher.GestureRecognize.MachineLearning.Interface;
-using SignTeacher.Model.Builder.Interface;
 using SignTeacher.Model.Enum;
 using SignTeacher.UI.Event;
-using SignTeacher.UI.LeapMotion.Interface;
+using SignTeacher.UI.LeapMotion.Data.Interface;
+using SignTeacher.UI.LeapMotion.EventHandler.Interface;
 
-namespace SignTeacher.UI.LeapMotion
+namespace SignTeacher.UI.LeapMotion.EventHandler
 {
     class DecisionMakerFrameHandler : FrameHandlerBase, IDecisionMakerFrameHandler
     {
         private readonly IClassifier _classifier;
         private readonly IEventAggregator _eventAggregator;
-        private readonly IControllerOutputBuilder _controllerOutputBuilder;
+        private readonly IControllerOutputService _controllerOutputService;
 
         public DecisionMakerFrameHandler(
             IClassifier classifier, 
             IEventAggregator eventAggregator, 
-            IControllerOutputBuilder controllerOutputBuilder)
+            IControllerOutputService controllerOutputService)
         {
             _classifier = classifier;
             _eventAggregator = eventAggregator;
-            _controllerOutputBuilder = controllerOutputBuilder;
+            _controllerOutputService = controllerOutputService;
         }
 
         protected override void OnHandle(object sender, FrameEventArgs eventArgs)
@@ -34,7 +34,7 @@ namespace SignTeacher.UI.LeapMotion
 
             if (rightHand == null) throw new ArgumentException("Right hand is required!");
 
-            var controllerOutput = _controllerOutputBuilder.GetControllerOutput(rightHand);
+            var controllerOutput = _controllerOutputService.GetControllerOutput(rightHand);
             var decision = _classifier.Decide(controllerOutput);
 
             _eventAggregator
