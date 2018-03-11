@@ -19,12 +19,13 @@ namespace SignTeacher.UI.Teacher.TeacherState
 
         public ITeacherState HandleDecision(AfterFrameHandleEventArgs afterFrameHandleEventArgs)
         {
+            StateDetails.LettersToKnow.Remove(StateDetails.CurrentLetter);
+
             if (!StateDetails.LettersToKnow.Any())
             {
-                return new Uninitialized();
+                return new Uninitialized(StateDetails);
             }
 
-            StateDetails.LettersToKnow.Remove(StateDetails.CurrentLetter);
             var currentLetter = StateDetails.LettersToKnow[Random.Next(StateDetails.LettersToKnow.Count)];
 
             return new Active(new TeacherStateDetails()

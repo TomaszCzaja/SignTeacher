@@ -6,7 +6,7 @@
         xmlns:view="clr-namespace:SignTeacher.UI.View"
         xmlns:viewModel="clr-namespace:SignTeacher.UI.ViewModel"
         mc:Ignorable="d"
-        Title="SignTeacher" Height="300" Width="400">
+        Title="SignTeacher" Height="350" Width="450">
     <Window.Resources>
         <DataTemplate DataType="{x:Type viewModel:ModelTrainerViewModel}">
             <view:ModelTrainerView/>
@@ -17,24 +17,24 @@
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Menu FontSize="16">
-            <Menu.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <VirtualizingStackPanel Orientation="Vertical"/>
-                </ItemsPanelTemplate>
-            </Menu.ItemsPanel>
-            <MenuItem Name="TrainModel" 
-                      Header="Train model" 
-                      Command="{Binding CreateDetailViewCommand}" 
-                      CommandParameter="{x:Type viewModel:ModelTrainerViewModel}"/>
-            <MenuItem Name="TestData"  
-                      Header="Test data" 
-                      Command="{Binding CreateDetailViewCommand}" 
-                      CommandParameter="{x:Type viewModel:TeacherViewModel}"/>
-        </Menu>
-        <ContentControl Grid.Column="1" Content="{Binding DetailViewModel}"/>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Button 
+            Grid.Row="1"
+            Content="Train model" 
+            Command="{Binding CreateDetailViewCommand}" 
+            CommandParameter="{x:Type viewModel:ModelTrainerViewModel}"/>
+        <Button 
+            Grid.Row="1"
+            Grid.Column="1"
+            Content="Start adventure" 
+            Command="{Binding CreateDetailViewCommand}" 
+            CommandParameter="{x:Type viewModel:TeacherViewModel}"/>
+        <ContentControl Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="{Binding DetailViewModel}"/>
     </Grid>
 </Window>

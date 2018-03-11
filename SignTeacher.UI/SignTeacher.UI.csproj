@@ -244,7 +244,9 @@
   <ItemGroup>
     <Resource Include="Resources\Y.PNG" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\Waiting.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy /yr "E:\Repositories\Magisterka\SignTeacher.UI\LeapMotionSDK\LeapC.dll" "$(TargetDir)"</PostBuildEvent>

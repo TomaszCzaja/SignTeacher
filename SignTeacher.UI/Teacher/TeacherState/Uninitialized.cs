@@ -10,7 +10,16 @@ namespace SignTeacher.UI.Teacher.TeacherState
 {
     public class Uninitialized : ITeacherState
     {
-        public TeacherStateDetails StateDetails { get; } = null;
+        public Uninitialized()
+        {
+        }
+
+        public Uninitialized(TeacherStateDetails teacherStateDetails)
+        {
+            StateDetails = teacherStateDetails;
+        }
+
+        public TeacherStateDetails StateDetails { get; }
 
         private Random Random { get; } = new Random();
 

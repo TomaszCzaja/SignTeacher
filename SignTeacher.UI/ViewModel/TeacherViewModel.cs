@@ -25,6 +25,7 @@ namespace SignTeacher.UI.ViewModel
         {
             _controller = controller;
             _decisionMakerFrameHandler = decisionMakerFrameHandler;
+            _displayedImagePath = "../Resources/Waiting.PNG";
 
             CheckControllerStatus();
 
