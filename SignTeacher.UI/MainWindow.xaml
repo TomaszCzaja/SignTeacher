@@ -6,12 +6,12 @@
         xmlns:view="clr-namespace:SignTeacher.UI.View"
         xmlns:viewModel="clr-namespace:SignTeacher.UI.ViewModel"
         mc:Ignorable="d"
-        Title="SignTeacher" Height="250" Width="400">
+        Title="SignTeacher" Height="300" Width="400">
     <Window.Resources>
         <DataTemplate DataType="{x:Type viewModel:ModelTrainerViewModel}">
             <view:ModelTrainerView/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModel:DecisionMakerViewModel}">
+        <DataTemplate DataType="{x:Type viewModel:TeacherViewModel}">
             <view:DecisionMakerView/>
         </DataTemplate>
     </Window.Resources>
@@ -33,7 +33,7 @@
             <MenuItem Name="TestData"  
                       Header="Test data" 
                       Command="{Binding CreateDetailViewCommand}" 
-                      CommandParameter="{x:Type viewModel:DecisionMakerViewModel}"/>
+                      CommandParameter="{x:Type viewModel:TeacherViewModel}"/>
         </Menu>
         <ContentControl Grid.Column="1" Content="{Binding DetailViewModel}"/>
     </Grid>

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Linq;
 using Leap;
 using Prism.Events;
@@ -18,8 +17,8 @@ namespace SignTeacher.UI.LeapMotion.EventHandler
         private readonly IControllerOutputService _controllerOutputService;
 
         public DecisionMakerFrameHandler(
-            IClassifier classifier, 
-            IEventAggregator eventAggregator, 
+            IClassifier classifier,
+            IEventAggregator eventAggregator,
             IControllerOutputService controllerOutputService)
         {
             _classifier = classifier;
@@ -32,19 +31,29 @@ namespace SignTeacher.UI.LeapMotion.EventHandler
             var frame = eventArgs.frame;
             var rightHand = frame.Hands.FirstOrDefault(hand => hand.IsRight);
 
-            if (rightHand == null) throw new ArgumentException("Right hand is required!");
+            if (rightHand == null)
+            {
+                _eventAggregator
+                    .GetEvent<AfterFrameHandleEvent>()
+                    .Publish(
+                        new AfterFrameHandleEventArgs()
+                        {
+                            ErrorMessage = "Right hand is required!"
+                        });
+                
+                return;
+            }
 
             var controllerOutput = _controllerOutputService.GetControllerOutput(rightHand);
             var decision = _classifier.Decide(controllerOutput);
 
             _eventAggregator
-                .GetEvent<AfterDecisionEvent>()
+                .GetEvent<AfterFrameHandleEvent>()
                 .Publish(
-                    new AfterDecisionEventArgs()
+                    new AfterFrameHandleEventArgs()
                     {
                         OutputClass = (OutputClass) decision
                     });
-
 
             Debug.WriteLine((OutputClass)decision);
         }

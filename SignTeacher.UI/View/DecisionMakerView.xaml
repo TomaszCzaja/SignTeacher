@@ -9,7 +9,15 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="46"/>
         </Grid.RowDefinitions>
-        <Image Source="{Binding DisplayedImagePath, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Stretch="Fill"  Height="100" Width="100"/>
+        <Viewbox Height="200"
+                 Width="200">
+            <Border BorderThickness="{Binding BorderThickness, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                    BorderBrush="Chartreuse">
+                <Image Source="{Binding DisplayedImagePath, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Stretch="Fill"  Height="200" Width="200"/>
+            </Border>
+        </Viewbox>
+        <Label Content="{Binding Message, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="10,10,10,0" Grid.Row="1" VerticalAlignment="Top" HorizontalContentAlignment="Stretch"/>
     </Grid>
 </UserControl>
