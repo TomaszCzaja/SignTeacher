@@ -14,6 +14,7 @@ namespace SignTeacher.UI.ViewModel
         public MainViewModel(IIndex<string, IDetailViewModel> detailViewModelCreator)
         {
             _detailViewModelCreator = detailViewModelCreator;
+            _detailViewModel = new LogoViewModel();
 
             CreateDetailViewCommand = new DelegateCommand<Type>(OnCreateDetailView);
         }

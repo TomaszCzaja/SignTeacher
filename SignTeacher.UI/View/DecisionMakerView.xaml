@@ -13,12 +13,11 @@
         </Grid.RowDefinitions>
         <Border BorderThickness="{Binding BorderThickness, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                 BorderBrush="Chartreuse">
-            <Viewbox Height="150"
-                 Width="200">
-
+            <Viewbox 
+                Height="150"
+                Width="200">
                 <Image Source="{Binding DisplayedImagePath, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Stretch="Fill"/>
-            
-        </Viewbox>
+            </Viewbox>
         </Border>
         <Label Content="{Binding Message, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" Margin="10,14,10,0" Grid.Row="1" VerticalAlignment="Top" HorizontalContentAlignment="Stretch"/>
     </Grid>

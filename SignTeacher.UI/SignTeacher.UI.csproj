@@ -97,6 +97,7 @@
     <Compile Include="Teacher\TeacherState\Passed.cs" />
     <Compile Include="Teacher\TeacherState\Uninitialized.cs" />
     <Compile Include="UiServicesRegistry.cs" />
+    <Compile Include="ViewModel\LogoViewModel.cs" />
     <Compile Include="ViewModel\TeacherViewModel.cs" />
     <Compile Include="ViewModel\Interface\ITeacherViewModel.cs" />
     <Compile Include="ViewModel\Interface\IDetailViewModel.cs" />
@@ -106,6 +107,9 @@
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\DecisionMakerView.xaml.cs">
       <DependentUpon>DecisionMakerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LogoView.xaml.cs">
+      <DependentUpon>LogoView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ModelTrainerView.xaml.cs">
       <DependentUpon>ModelTrainerView.xaml</DependentUpon>
@@ -126,9 +130,13 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ModelTrainerView.xaml">
+    <Page Include="View\LogoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ModelTrainerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -246,6 +254,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Waiting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SignTeacher.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
