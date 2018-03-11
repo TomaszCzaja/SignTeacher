@@ -10,6 +10,10 @@ namespace SignTeacher.UI.Event
 
     public class TeacherStateChangedArgs
     {
-        public TeacherState State { get; set; }
+        public string CurrentLetter { get; set; }
+
+        public int Score { get; set; }
+
+        public string Message { get; set; }
     }
 }

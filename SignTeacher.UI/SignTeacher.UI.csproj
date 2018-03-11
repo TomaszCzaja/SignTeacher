@@ -88,10 +88,14 @@
     <Compile Include="LeapMotion\EventHandler\Interface\IModelTrainerFrameHandler.cs" />
     <Compile Include="LeapMotion\EventHandler\ModelTrainerFrameHandler.cs" />
     <Compile Include="Properties\Annotations.cs" />
-    <Compile Include="Service\Interface\ITeacherService.cs" />
-    <Compile Include="Service\TeacherService.cs" />
+    <Compile Include="Teacher\Interface\ITeacher.cs" />
+    <Compile Include="Teacher\Interface\ITeacherState.cs" />
+    <Compile Include="Teacher\Teacher.cs" />
     <Compile Include="Startup\AutoMapperConfig.cs" />
     <Compile Include="Startup\Bootstrapper.cs" />
+    <Compile Include="Teacher\TeacherState\Active.cs" />
+    <Compile Include="Teacher\TeacherState\Passed.cs" />
+    <Compile Include="Teacher\TeacherState\Uninitialized.cs" />
     <Compile Include="UiServicesRegistry.cs" />
     <Compile Include="ViewModel\TeacherViewModel.cs" />
     <Compile Include="ViewModel\Interface\ITeacherViewModel.cs" />
@@ -240,6 +244,7 @@
   <ItemGroup>
     <Resource Include="Resources\Y.PNG" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy /yr "E:\Repositories\Magisterka\SignTeacher.UI\LeapMotionSDK\LeapC.dll" "$(TargetDir)"</PostBuildEvent>

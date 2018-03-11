@@ -6,8 +6,7 @@ using SignTeacher.UI.LeapMotion.Data;
 using SignTeacher.UI.LeapMotion.Data.Interface;
 using SignTeacher.UI.LeapMotion.EventHandler;
 using SignTeacher.UI.LeapMotion.EventHandler.Interface;
-using SignTeacher.UI.Service;
-using SignTeacher.UI.Service.Interface;
+using SignTeacher.UI.Teacher.Interface;
 using SignTeacher.UI.ViewModel;
 using SignTeacher.UI.ViewModel.Interface;
 
@@ -25,7 +24,7 @@ namespace SignTeacher.UI
             builder.RegisterType<ModelTrainerViewModel>()
                 .Keyed<IDetailViewModel>(nameof(ModelTrainerViewModel));
 
-            builder.RegisterType<TeacherService>().As<ITeacherService>().SingleInstance();
+            builder.RegisterType<Teacher.Teacher>().As<ITeacher>().SingleInstance();
 
             //builder.RegisterType<LookupDataService>().AsImplementedInterfaces();
             //builder.RegisterType<UserDataService>().As<IUserDataService>();

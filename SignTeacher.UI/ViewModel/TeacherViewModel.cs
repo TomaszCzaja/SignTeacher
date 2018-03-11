@@ -3,7 +3,7 @@ using Leap;
 using Prism.Events;
 using SignTeacher.UI.Event;
 using SignTeacher.UI.LeapMotion.EventHandler.Interface;
-using SignTeacher.UI.Service.Interface;
+using SignTeacher.UI.Teacher.Interface;
 using SignTeacher.UI.ViewModel.Interface;
 
 namespace SignTeacher.UI.ViewModel
@@ -21,12 +21,11 @@ namespace SignTeacher.UI.ViewModel
             IDecisionMakerFrameHandler decisionMakerFrameHandler,
             Controller controller,
             IEventAggregator eventAggregator,
-            ITeacherService teacherService)
+            ITeacher teacher)
         {
             _controller = controller;
             _decisionMakerFrameHandler = decisionMakerFrameHandler;
 
-            teacherService.InitializeState();
             CheckControllerStatus();
 
             _controller.FrameReady += _decisionMakerFrameHandler.Handle;
@@ -88,11 +87,9 @@ namespace SignTeacher.UI.ViewModel
 
         private void OnTeacherStateChangedEvent(TeacherStateChangedArgs teacherStateChangedArgs)
         {
-            var teacherState = teacherStateChangedArgs.State;
-
-            DisplayedImagePath = $"../Resources/{teacherState.CurrentLetter}.PNG";
-            Message = teacherState.Message;
-            BorderThickness = teacherState.Score;
+            DisplayedImagePath = $"../Resources/{teacherStateChangedArgs.CurrentLetter}.PNG";
+            Message = teacherStateChangedArgs.Message;
+            BorderThickness = teacherStateChangedArgs.Score;
         }
     }
 }
