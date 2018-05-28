@@ -8,30 +8,30 @@ namespace SignTeacher.UI.Teacher.TeacherState
 {
     public class Passed : ITeacherState
     {
-        public Passed(TeacherStateDetails stateDetails)
+        public Passed(Model.AppModel.TeacherState state)
         {
-            StateDetails = stateDetails;
+            State = state;
         }
 
-        public TeacherStateDetails StateDetails { get; }
+        public Model.AppModel.TeacherState State { get; }
 
         private Random Random { get; } = new Random();
 
         public ITeacherState HandleDecision(AfterFrameHandleEventArgs afterFrameHandleEventArgs)
         {
-            StateDetails.LettersToKnow.Remove(StateDetails.CurrentLetter);
+            State.LettersToKnow.Remove(State.CurrentLetter);
 
-            if (!StateDetails.LettersToKnow.Any())
+            if (!State.LettersToKnow.Any())
             {
-                return new Uninitialized(StateDetails);
+                return new Uninitialized(State);
             }
 
-            var currentLetter = StateDetails.LettersToKnow[Random.Next(StateDetails.LettersToKnow.Count)];
+            var currentLetter = State.LettersToKnow[Random.Next(State.LettersToKnow.Count)];
 
-            return new Active(new TeacherStateDetails()
+            return new Active(new Model.AppModel.TeacherState()
             {
                 CurrentLetter = currentLetter,
-                LettersToKnow = StateDetails.LettersToKnow,
+                LettersToKnow = State.LettersToKnow,
                 Message = "You passed!",
                 Score = 0
             });

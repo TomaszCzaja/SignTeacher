@@ -2,7 +2,7 @@
 
 namespace SignTeacher.Model.AppModel
 {
-    public class TeacherStateDetails
+    public class TeacherState
     {
         public string CurrentLetter { get; set; }
 

@@ -9,7 +9,7 @@ namespace SignTeacher.UI.Startup
         {
             Mapper.Initialize(cfg =>
             {
-                cfg.CreateMap<ControllerOutput, DataSetInstance>();
+                cfg.CreateMap<ControllerOutput, Gesture>();
             });
         }
     }

@@ -14,7 +14,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
-            <Button Content="A" Width="55" Margin="10" 
+            <Button Content="A" Width="50" Margin="20, 10, 10, 10"
                     Command="{Binding ChooseClassCommand}" 
                     CommandParameter="{x:Static enum:OutputClass.A}"/>
             <Button Content="B" Width="50" Margin="10" 
@@ -22,27 +22,77 @@
                     CommandParameter="{x:Static enum:OutputClass.B}"/>
             <Button Content="C" Width="50" Margin="10" 
                     Command="{Binding ChooseClassCommand}" 
-                    CommandParameter="{x:Static enum:OutputClass.C}"/>
+                    CommandParameter="{x:Static enum:OutputClass.C}"/>            
+            <Button Content="D" Width="50" Margin="10" 
+                    Command="{Binding ChooseClassCommand}" 
+                    CommandParameter="{x:Static enum:OutputClass.D}"/>
             <Button Content="E" Width="50" Margin="10" 
                     Command="{Binding ChooseClassCommand}" 
                     CommandParameter="{x:Static enum:OutputClass.E}"/>
+            <Button Content="F" Width="50" Margin="10" 
+                    Command="{Binding ChooseClassCommand}" 
+                    CommandParameter="{x:Static enum:OutputClass.F}"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <Button Content="O" Width="55" Margin="10" 
+            <Button Content="G" Width="50" Margin="20, 10, 10, 10" 
+                    Command="{Binding ChooseClassCommand}" 
+                    CommandParameter="{x:Static enum:OutputClass.G}"/>
+            <Button Content="H" Width="50" Margin="10" 
+                    Command="{Binding ChooseClassCommand}" 
+                    CommandParameter="{x:Static enum:OutputClass.H}"/>
+            <Button Content="I" Width="50" Margin="10" 
+                    Command="{Binding ChooseClassCommand}" 
+                    CommandParameter="{x:Static enum:OutputClass.I}"/>
+            <Button Content="K" Width="50" Margin="10" 
+                    Command="{Binding ChooseClassCommand}" 
+                    CommandParameter="{x:Static enum:OutputClass.K}"/>
+            <Button Content="L" Width="50" Margin="10" 
+                    Command="{Binding ChooseClassCommand}" 
+                    CommandParameter="{x:Static enum:OutputClass.L}"/>
+            <Button Content="M" Width="50" Margin="10" 
+                    Command="{Binding ChooseClassCommand}" 
+                    CommandParameter="{x:Static enum:OutputClass.M}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <Button Content="N" Width="50" Margin="20, 10, 10, 10" 
+                    Command="{Binding ChooseClassCommand}" 
+                    CommandParameter="{x:Static enum:OutputClass.N}"/>
+            <Button Content="O" Width="50" Margin="10" 
                     Command="{Binding ChooseClassCommand}" 
                     CommandParameter="{x:Static enum:OutputClass.O}"/>
             <Button Content="P" Width="50" Margin="10" 
                     Command="{Binding ChooseClassCommand}" 
                     CommandParameter="{x:Static enum:OutputClass.P}"/>
+            <Button Content="Q" Width="50" Margin="10" 
+                    Command="{Binding ChooseClassCommand}" 
+                    CommandParameter="{x:Static enum:OutputClass.Q}"/>
+            <Button Content="R" Width="50" Margin="10" 
+                    Command="{Binding ChooseClassCommand}" 
+                    CommandParameter="{x:Static enum:OutputClass.R}"/>
             <Button Content="S" Width="50" Margin="10" 
                     Command="{Binding ChooseClassCommand}" 
                     CommandParameter="{x:Static enum:OutputClass.S}"/>
-            <Button Content="Y" Width="50" Margin="10" 
-                    Command="{Binding ChooseClassCommand}" 
-                    CommandParameter="{x:Static enum:OutputClass.Y}"/>
         </StackPanel>
         <StackPanel Grid.Row="3" Orientation="Horizontal">
-            <Button Content="Save" Width="50" Margin="10" 
+            <Button Content="T" Width="30" Margin="20, 10, 10, 10" 
+                    Command="{Binding ChooseClassCommand}" 
+                    CommandParameter="{x:Static enum:OutputClass.T}"/>
+            <Button Content="U" Width="30" Margin="10" 
+                    Command="{Binding ChooseClassCommand}" 
+                    CommandParameter="{x:Static enum:OutputClass.U}"/>
+            <Button Content="V" Width="30" Margin="10" 
+                    Command="{Binding ChooseClassCommand}" 
+                    CommandParameter="{x:Static enum:OutputClass.V}"/>
+            <Button Content="W" Width="30" Margin="10" 
+                    Command="{Binding ChooseClassCommand}" 
+                    CommandParameter="{x:Static enum:OutputClass.W}"/>
+            <Button Content="X" Width="30" Margin="10" 
+                    Command="{Binding ChooseClassCommand}" 
+                    CommandParameter="{x:Static enum:OutputClass.X}"/>
+            <Button Content="Y" Width="30" Margin="10" 
+                    Command="{Binding ChooseClassCommand}" 
+                    CommandParameter="{x:Static enum:OutputClass.Y}"/>
+            <Button Content="Save" Width="90" Margin="20, 10, 10, 10" 
                     Command="{Binding SaveDataSet}"/>
         </StackPanel>
     </Grid>

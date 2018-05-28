@@ -14,12 +14,12 @@ namespace SignTeacher.UI.Teacher.TeacherState
         {
         }
 
-        public Uninitialized(TeacherStateDetails teacherStateDetails)
+        public Uninitialized(Model.AppModel.TeacherState teacherState)
         {
-            StateDetails = teacherStateDetails;
+            State = teacherState;
         }
 
-        public TeacherStateDetails StateDetails { get; }
+        public Model.AppModel.TeacherState State { get; }
 
         private Random Random { get; } = new Random();
 
@@ -29,7 +29,7 @@ namespace SignTeacher.UI.Teacher.TeacherState
             var currentLetter = GetCurrentLetter(outputClasses);
             var lettersToKnow = GetLettersToKnow(outputClasses);
 
-            var stateDetails = new TeacherStateDetails()
+            var stateDetails = new Model.AppModel.TeacherState()
             {
                 CurrentLetter = currentLetter,
                 LettersToKnow = lettersToKnow,

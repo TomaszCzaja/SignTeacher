@@ -13,25 +13,25 @@ namespace SignTeacher.UI.Teacher
         {
             _eventAggregator = eventAggregator;
 
-            State = new Uninitialized();
+            TeacherState = new Uninitialized();
 
             _eventAggregator.GetEvent<AfterFrameHandleEvent>().Subscribe(OnAfterFrameHandleEvent);
         }
 
-        private ITeacherState State { get; set; }
+        private ITeacherState TeacherState { get; set; }
 
         private void OnAfterFrameHandleEvent(AfterFrameHandleEventArgs afterFrameHandleEventArgs)
         {
-            State = State.HandleDecision(afterFrameHandleEventArgs);
+            TeacherState = TeacherState.HandleDecision(afterFrameHandleEventArgs);
 
             _eventAggregator
                 .GetEvent<TeacherStateChangedEvent>()
                 .Publish(
                     new TeacherStateChangedArgs()
                     {
-                        Message = State.StateDetails.Message,
-                        CurrentLetter = State.StateDetails.CurrentLetter,
-                        Score = State.StateDetails.Score
+                        Message = TeacherState.State.Message,
+                        CurrentLetter = TeacherState.State.CurrentLetter,
+                        Score = TeacherState.State.Score
                     });
         }
     }

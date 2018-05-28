@@ -46,10 +46,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppModel\ControllerOutput.cs" />
-    <Compile Include="AppModel\DataSetInstance.cs" />
-    <Compile Include="AppModel\LookupItem.cs" />
-    <Compile Include="AppModel\TeacherStateDetails.cs" />
-    <Compile Include="AppModel\User.cs" />
+    <Compile Include="AppModel\Gesture.cs" />
+    <Compile Include="AppModel\TeacherState.cs" />
     <Compile Include="Enum\OutputClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

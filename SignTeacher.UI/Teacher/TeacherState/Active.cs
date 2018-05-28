@@ -6,23 +6,23 @@ namespace SignTeacher.UI.Teacher.TeacherState
 {
     public class Active : ITeacherState
     {
-        public Active(TeacherStateDetails stateDetails)
+        public Active(Model.AppModel.TeacherState state)
         {
-            StateDetails = stateDetails;
+            State = state;
         }
 
-        public TeacherStateDetails StateDetails { get; set; }
+        public Model.AppModel.TeacherState State { get; set; }
 
         public ITeacherState HandleDecision(AfterFrameHandleEventArgs afterFrameHandleEventArgs)
         {
             if (afterFrameHandleEventArgs.ErrorMessage != null)
             {
-                return new Active(new TeacherStateDetails()
+                return new Active(new Model.AppModel.TeacherState()
                 {
-                    CurrentLetter = StateDetails.CurrentLetter,
-                    LettersToKnow = StateDetails.LettersToKnow,
+                    CurrentLetter = State.CurrentLetter,
+                    LettersToKnow = State.LettersToKnow,
                     Message = afterFrameHandleEventArgs.ErrorMessage,
-                    Score = StateDetails.Score
+                    Score = State.Score
                 });
             }
 
@@ -31,18 +31,18 @@ namespace SignTeacher.UI.Teacher.TeacherState
 
         private ITeacherState CheckResult(AfterFrameHandleEventArgs afterFrameHandleEventArgs)
         {
-            if (StateDetails.Score > 10)
+            if (State.Score > 10)
             {
-                return new Passed(StateDetails);
+                return new Passed(State);
             }
 
             var outputClass = afterFrameHandleEventArgs.OutputClass.ToString();
-            var stateDetails = new TeacherStateDetails()
+            var stateDetails = new Model.AppModel.TeacherState()
             {
-                CurrentLetter = StateDetails.CurrentLetter,
-                LettersToKnow = StateDetails.LettersToKnow,
-                Message = StateDetails.Message,
-                Score = StateDetails.Score
+                CurrentLetter = State.CurrentLetter,
+                LettersToKnow = State.LettersToKnow,
+                Message = State.Message,
+                Score = State.Score
             };
 
             if (stateDetails.CurrentLetter.Equals(outputClass))

@@ -167,10 +167,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SignTeacher.DataAccess\SignTeacher.DataAccess.csproj">
-      <Project>{701DE72C-EEDD-4B10-9CFD-5D2D933E2DFB}</Project>
-      <Name>SignTeacher.DataAccess</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SignTeacher.GestureRecognize\SignTeacher.GestureRecognize.csproj">
       <Project>{5ad1f886-413a-41e5-8150-6b5018bc27b8}</Project>
       <Name>SignTeacher.GestureRecognize</Name>

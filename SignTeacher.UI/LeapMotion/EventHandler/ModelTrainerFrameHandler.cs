@@ -25,6 +25,7 @@ namespace SignTeacher.UI.LeapMotion.EventHandler
             var rightHand = frame.Hands.FirstOrDefault(hand => hand.IsRight);
 
             if (rightHand == null) throw new ArgumentException("Right hand is required!");
+            if (rightHand.Confidence < 0.99) throw new ArgumentException("Noised data!");
 
             var controllerOutput = _controllerOutputService.GetControllerOutput(rightHand);
             _dataSetWrapper.Add(controllerOutput);

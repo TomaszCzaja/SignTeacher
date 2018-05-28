@@ -5,7 +5,7 @@ namespace SignTeacher.UI.Teacher.Interface
 {
     public interface ITeacherState
     {
-        TeacherStateDetails StateDetails { get; }
+        Model.AppModel.TeacherState State { get; }
 
         ITeacherState HandleDecision(AfterFrameHandleEventArgs afterFrameHandleEventArgs);
     }

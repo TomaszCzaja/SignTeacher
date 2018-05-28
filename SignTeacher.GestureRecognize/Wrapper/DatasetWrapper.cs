@@ -16,16 +16,16 @@ namespace SignTeacher.GestureRecognize.Wrapper
         {
             _excelExporter = excelExporter;
 
-            this.DataSet = new List<DataSetInstance>();
+            this.DataSet = new List<Gesture>();
         }
 
         public OutputClass OutputClass { get; set; }
 
-        private List<DataSetInstance> DataSet { get; }
+        private List<Gesture> DataSet { get; }
 
         public void Add(ControllerOutput controllerOutput)
         {
-            var dataSetInstance = Mapper.Map<DataSetInstance>(controllerOutput);
+            var dataSetInstance = Mapper.Map<Gesture>(controllerOutput);
             dataSetInstance.SetClass(OutputClass);
 
             DataSet.Add(dataSetInstance);
